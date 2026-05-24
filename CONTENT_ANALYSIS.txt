@@ -1,0 +1,12 @@
+Content Analysis Summary:
+    
+CSS + Head: 490674 chars
+Nav: 471834 chars
+Hero: 2321 chars
+Products: 3285 chars
+VerisQ Formats: 1753 chars
+Strains: 15058 chars
+Values: 1298 chars
+Footer: 476878 chars
+
+Total: 1444992 chars

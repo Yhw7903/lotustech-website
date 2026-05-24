@@ -1,0 +1,213 @@
+================================================================================
+                        LOTUSTECH WEBSITE SITEMAP
+================================================================================
+
+ROOT DIRECTORY: /sessions/gifted-upbeat-clarke/mnt/LotusTech website/
+
+HTML PAGES (6 main pages):
+├── index.html (HOME)
+│   ├── Hero Banner (brand positioning)
+│   ├── Trust Bar (4 indicators)
+│   ├── Products Overview (2 cards linking to detail pages)
+│   ├── Values Section (3 core propositions)
+│   ├── Contact CTA Banner
+│   └── Footer
+│
+├── verisq.html (VERISQ PRODUCT PAGE)
+│   ├── Page Hero
+│   ├── Product Formats (3 formats: SS, GP, TK)
+│   ├── Strains Table (11 organisms)
+│   ├── Equivalence Download Links
+│   ├── UKHSA Licence Callout
+│   └── Footer
+│
+├── microdome.html (MICRODOME PRODUCT PAGE)
+│   ├── Page Hero
+│   ├── 3 Product Category Cards
+│   ├── About MicroDome Section
+│   ├── Product Image (vphp-bi.png)
+│   ├── External Link: www.microdome.cn
+│   ├── Compliance Grid
+│   └── Footer
+│
+├── about.html (COMPANY INFO PAGE)
+│   ├── Page Hero
+│   ├── Company Overview
+│   ├── UKHSA Licence Details
+│   ├── TGA Compliance Section
+│   ├── Certifications Grid
+│   └── Footer
+│
+├── resources.html (TECHNICAL RESOURCES PAGE)
+│   ├── Page Hero
+│   ├── 3 Resource Cards (COA, TDS, Equivalence)
+│   ├── Equivalence Matrix Link
+│   ├── Pharmacopoeia Reference Table
+│   ├── FAQ Section (8 items, toggle-enabled)
+│   └── Footer
+│
+└── contact.html (CONTACT & QUOTE REQUEST PAGE)
+    ├── Page Hero
+    ├── Quote Request Form (mailto: action)
+    ├── Contact Information Card
+    ├── Distributors Section
+    └── Footer
+
+NAVIGATION (present on all 6 pages):
+────────────────────────────────────
+Fixed navbar (72px height) with:
+  - LotusTech logo/home link
+  - 6 page links: Home | VerisQ™ | MicroDome | About | Resources | Contact
+  - "Request a Quote" CTA button
+  - Active page highlighted in gold
+
+SUPPORTING FILES:
+─────────────────
+- nctc-atcc-equivalence.html (existing equivalence matrix page, linked from Resources)
+- statements/ folder (11 .docx equivalence documents, linked from VerisQ page)
+- VerisQ.png (product image, displayed on home hero)
+- vphp-bi.png (product image, displayed on MicroDome page)
+
+DESIGN SYSTEM:
+──────────────
+Colors:
+  - Navy: #1B3A6B (primary)
+  - Blue: #2756A8 (secondary)
+  - Gold: #F0AA1E (accent, hover states)
+  - Offwhite: #F6F7FA (backgrounds)
+  - Gray: #6B7280, #E8EBF0 (text, borders)
+
+Typography:
+  - DM Serif Display (headings, brand)
+  - DM Sans (body, UI)
+
+Responsive:
+  - Desktop: 1200px+ (optimal)
+  - Tablet: 768px-1200px (responsive grids)
+  - Mobile: <768px (single column)
+
+FOOTER (consistent across all pages):
+─────────────────────────────────────
+4-column layout:
+  1. Products (VerisQ™, MicroDome, Resources links)
+  2. Company (About, UKHSA Licence, Certifications)
+  3. Support (COAs, FAQs, Contact)
+  4. Contact (Address, Email link)
+
+Plus:
+  - Copyright notice
+  - UKHSA licence attribution
+
+KEY INTERNAL LINKS:
+───────────────────
+Home (index.html) →
+  ├→ VerisQ™ product overview card → verisq.html
+  ├→ MicroDome product overview card → microdome.html
+  ├→ "Contact Us" button → contact.html
+  └→ All footer links to respective pages
+
+VerisQ™ (verisq.html) →
+  ├→ Download links → statements/ folder (.docx files)
+  └→ Footer links to other pages
+
+MicroDome (microdome.html) →
+  ├→ "Visit www.microdome.cn" button → external
+  └→ Footer links to other pages
+
+About (about.html) →
+  └→ Footer links to other pages
+
+Resources (resources.html) →
+  ├→ "View NCTC-ATCC Equivalence Matrix" button → nctc-atcc-equivalence.html
+  └→ Footer links to other pages
+
+Contact (contact.html) →
+  ├→ Form action: mailto: sales@lotustech.com.au
+  ├→ "Visit www.microdome.cn" button → external
+  └→ Footer links to other pages
+
+FORM FIELDS (on contact.html):
+──────────────────────────────
+  - Full Name (required)
+  - Company/Organisation (required)
+  - Email Address (required)
+  - Phone Number (optional)
+  - Product Interest (required dropdown):
+      ○ VerisQ™ Reference Cultures
+      ○ MicroDome Biological Indicators
+      ○ MicroDome Chemical Indicators
+      ○ MicroDome Reference Cultures
+      ○ General Inquiry / Other
+  - Message/Requirements (optional textarea)
+  
+Submission: mailto: sales@lotustech.com.au
+
+DYNAMIC ELEMENTS:
+─────────────────
+- FAQ toggle functionality (resources.html) - JavaScript
+- Product card hover effects (all pages) - CSS
+- Button hover/focus states (all pages) - CSS
+- Mobile-responsive navigation (all pages) - CSS media queries
+- Smooth scroll behavior (html) - CSS
+
+UPDATED CONTENT vs ORIGINAL:
+────────────────────────────
+Original index.html (1164 lines, single page):
+  ✗ Removed: Full strains table
+  ✗ Removed: Equivalence comparison table
+  ✓ Kept: Hero section
+  ✓ Kept: Trust bar
+  ✓ Kept: Products overview cards (updated links)
+  ✓ Kept: Values section
+  ✓ Kept: Footer structure
+  ✓ Added: Contact CTA banner
+  ✓ Updated: Navigation with 6-page structure
+
+New pages created:
+  ✓ verisq.html - Full VerisQ™ product page with strains
+  ✓ microdome.html - MicroDome product overview
+  ✓ about.html - Company info, UKHSA licence, TGA compliance
+  ✓ resources.html - COA downloads, FAQ, pharma reference
+  ✓ contact.html - Quote request form, distributor info
+
+================================================================================
+DEPLOYMENT CHECKLIST
+================================================================================
+
+Before going live:
+  ☐ Test all 6 pages load correctly
+  ☐ Test navigation between all pages
+  ☐ Verify images (VerisQ.png, vphp-bi.png) display
+  ☐ Test form submission (mailto action)
+  ☐ Test external links (www.microdome.cn)
+  ☐ Check responsive design on mobile devices
+  ☐ Verify FAQ toggle works (JavaScript)
+  ☐ Test all internal links
+  ☐ Check hover effects and animations
+  ☐ Verify footer links work
+  ☐ Test on multiple browsers (Chrome, Firefox, Safari, Edge)
+  ☐ Check page titles and meta tags
+  ☐ Verify download links to statements/ folder work
+  ☐ Test anchor links (if any)
+  ☐ Check color contrast for accessibility
+  ☐ Test keyboard navigation
+  ☐ Verify smooth scrolling works
+  ☐ Check that nav active state shows on current page
+
+Optional enhancements:
+  ☐ Add Google Analytics
+  ☐ Implement contact form service (instead of mailto)
+  ☐ Add XML sitemap
+  ☐ Add robots.txt
+  ☐ Add meta descriptions
+  ☐ Implement schema.org structured data
+  ☐ Add favicon
+  ☐ Set up email server for form submissions
+  ☐ Add breadcrumb navigation
+  ☐ Implement search functionality
+  ☐ Add print stylesheets
+  ☐ Set up CDN for images
+
+================================================================================
+END OF SITEMAP
+================================================================================

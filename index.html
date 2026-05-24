@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LotusTech — Pharmaceutical Microbiology Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #1B3A6B;
+    --blue:    #2756A8;
+    --gold:    #F0AA1E;
+    --gold-lt: #FCC84A;
+    --white:   #FFFFFF;
+    --offwhite:#F6F7FA;
+    --gray:    #6B7280;
+    --gray-lt: #E8EBF0;
+    --text:    #1A1F2E;
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); color: var(--text); background: var(--white); overflow-x: hidden; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 80px;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(27,58,107,0.08);
+  }
+  .nav-logo img { height: 60px; display: block; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 14px; font-weight: 500; color: var(--navy);
+    text-decoration: none; letter-spacing: 0.02em; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a.nav-active { color: var(--gold); font-weight: 600; }
+  .nav-cta {
+    background: var(--navy); color: var(--white);
+    padding: 10px 22px; border-radius: 6px;
+    font-size: 14px; font-weight: 500; text-decoration: none;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--blue); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 72px; overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 56px 80px 80px;
+    background: var(--white); position: relative;
+  }
+  .hero-left::after {
+    content: ''; position: absolute; right: 0; top: 10%; bottom: 10%;
+    width: 1px; background: var(--gray-lt);
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+    color: var(--blue); text-transform: uppercase; margin-bottom: 24px;
+  }
+  .hero-eyebrow span {
+    display: inline-block; width: 24px; height: 2px;
+    background: var(--gold); border-radius: 2px;
+  }
+  .hero-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 4.5vw, 64px);
+    line-height: 1.1; color: var(--navy); margin-bottom: 28px;
+  }
+  .hero-h1 em { font-style: italic; color: var(--gold); }
+  .hero-desc {
+    font-size: 17px; font-weight: 300; line-height: 1.75;
+    color: var(--gray); max-width: 460px; margin-bottom: 20px;
+  }
+  .hero-licence {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--offwhite); border: 1px solid var(--gray-lt);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px; padding: 10px 16px;
+    font-size: 13px; color: var(--gray); margin-bottom: 36px;
+    max-width: 460px;
+  }
+  .hero-licence strong { color: var(--navy); font-weight: 600; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--navy); color: var(--white);
+    padding: 14px 32px; border-radius: 6px;
+    font-size: 15px; font-weight: 500; text-decoration: none;
+    transition: background .2s, transform .15s; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--blue); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1.5px solid var(--navy); color: var(--navy);
+    padding: 13px 32px; border-radius: 6px;
+    font-size: 15px; font-weight: 500; text-decoration: none;
+    transition: all .2s; display: inline-block;
+  }
+  .btn-outline:hover { background: var(--navy); color: var(--white); }
+
+  .hero-right {
+    background: linear-gradient(145deg, #EEF2FA 0%, #D8E3F5 60%, #C8D5F0 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 48px 40px 40px; position: relative; overflow: hidden;
+    min-height: calc(100vh - 72px);
+  }
+  .hero-right::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(240,170,30,0.12) 0%, transparent 60%);
+  }
+  /* ─── HERO CAROUSEL ─── */
+  .hero-carousel {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 24px;
+  }
+  .hero-slides {
+    position: relative; width: 100%;
+    display: flex; align-items: center; justify-content: center;
+    flex: 1;
+  }
+  .hero-slide {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.8s ease;
+    pointer-events: none;
+  }
+  .hero-slide.active {
+    opacity: 1; pointer-events: auto;
+  }
+  .hero-slide img {
+    max-height: 62vh; width: auto; max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 28px 56px rgba(27,58,107,0.22));
+    animation: float 5s ease-in-out infinite;
+  }
+  .hero-slide-label {
+    margin-top: 20px; text-align: center;
+    background: rgba(255,255,255,0.88);
+    border: 1px solid rgba(27,58,107,0.10);
+    border-radius: 10px; padding: 12px 24px;
+    box-shadow: 0 4px 20px rgba(27,58,107,0.08);
+  }
+  .slide-label-name {
+    font-family: var(--font-display);
+    font-size: 22px; color: var(--navy); line-height: 1;
+  }
+  .slide-label-name sup { font-size: 12px; opacity: 0.7; vertical-align: super; }
+  .slide-label-sub {
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--blue); font-weight: 600; margin-top: 4px;
+  }
+  /* Carousel dots */
+  .carousel-dots {
+    display: flex; gap: 8px; justify-content: center;
+    z-index: 2; flex-shrink: 0;
+  }
+  .carousel-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(27,58,107,0.2);
+    border: none; cursor: pointer; padding: 0;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .carousel-dot.active {
+    background: var(--navy); transform: scale(1.3);
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-14px); }
+  }
+
+  /* ─── TRUST BAR ─── */
+  .trust-bar {
+    background: var(--navy); padding: 28px 80px;
+    display: flex; align-items: center; justify-content: space-around;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .trust-item { display: flex; align-items: center; gap: 12px; }
+  .trust-icon {
+    width: 36px; height: 36px; background: rgba(240,170,30,0.2);
+    border-radius: 8px; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
+  }
+  .trust-icon svg {
+    width: 18px; height: 18px; stroke: var(--gold);
+    fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .trust-label { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.3; }
+  .trust-value { font-size: 14px; font-weight: 600; color: var(--white); line-height: 1.3; }
+
+  /* ─── SECTIONS ─── */
+  .section { padding: 100px 80px; }
+  .section-eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+    color: var(--blue); text-transform: uppercase; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-eyebrow::before {
+    content: ''; width: 24px; height: 2px;
+    background: var(--gold); border-radius: 2px; display: block;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 3.5vw, 48px);
+    color: var(--navy); line-height: 1.15;
+    margin-bottom: 56px; max-width: 560px;
+  }
+
+  /* ─── PRODUCTS ─── */
+  .products-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .product-card {
+    border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--gray-lt);
+    transition: transform .25s, box-shadow .25s;
+    text-decoration: none; display: block; background: var(--white);
+  }
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(27,58,107,0.12);
+  }
+  .product-card-header { padding: 40px 40px 32px; }
+  .product-card.verisq  .product-card-header { background: linear-gradient(135deg, var(--navy) 0%, #2756A8 100%); }
+  .product-card.microdome .product-card-header { background: linear-gradient(135deg, #1A3A2A 0%, #2D6A47 100%); }
+  .card-brand {
+    font-family: var(--font-display); font-size: 36px; color: var(--white); line-height: 1;
+  }
+  .card-brand sup { font-size: 16px; vertical-align: super; opacity: 0.8; }
+  .card-tagline {
+    font-size: 13px; color: rgba(255,255,255,0.6);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    font-weight: 500; margin-top: 6px;
+  }
+  .card-licence-attr {
+    margin-top: 14px; font-size: 11px;
+    color: rgba(255,255,255,0.5); line-height: 1.5;
+    border-top: 1px solid rgba(255,255,255,0.12); padding-top: 12px;
+  }
+  .card-body { padding: 32px 40px 40px; }
+  .card-desc { font-size: 15px; color: var(--gray); line-height: 1.7; margin-bottom: 24px; }
+  .card-features {
+    list-style: none; display: flex; flex-direction: column;
+    gap: 10px; margin-bottom: 28px;
+  }
+  .card-features li {
+    font-size: 14px; color: var(--text);
+    display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+  }
+  .card-features li::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0; margin-top: 6px;
+  }
+  .card-link {
+    font-size: 14px; font-weight: 600; color: var(--blue);
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none; transition: gap .2s;
+  }
+  .card-link:hover { gap: 10px; }
+
+  /* ─── VALUES ─── */
+  .values { background: var(--offwhite); }
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+  .value-card {
+    background: var(--white); border-radius: 12px; padding: 36px;
+    border: 1px solid var(--gray-lt);
+  }
+  .value-icon {
+    width: 48px; height: 48px; background: rgba(240,170,30,0.15);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px; flex-shrink: 0;
+  }
+  .value-icon svg {
+    width: 24px; height: 24px; stroke: var(--gold); fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .value-title {
+    font-family: var(--font-display);
+    font-size: 22px; color: var(--navy); margin-bottom: 10px;
+  }
+  .value-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+  /* ─── CONTACT CTA ─── */
+  .contact-cta {
+    background: var(--navy); color: var(--white);
+    padding: 60px 80px; text-align: center;
+  }
+  .contact-cta h2 {
+    font-family: var(--font-display);
+    font-size: 42px; margin-bottom: 16px;
+  }
+  .contact-cta p {
+    font-size: 16px; margin-bottom: 28px;
+    max-width: 640px; margin-left: auto; margin-right: auto;
+    line-height: 1.6;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.7);
+    padding: 56px 80px 32px; border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  footer a { color: var(--gold); text-decoration: none; transition: opacity .2s; }
+  footer a:hover { opacity: 0.8; }
+  .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; margin-bottom: 36px; }
+  .footer-col h4 {
+    font-size: 14px; font-weight: 600; color: var(--white);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin-bottom: 14px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { font-size: 13px; margin-bottom: 8px; line-height: 1.5; }
+  .footer-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 24px 0; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+  .footer-bottom-left { display: flex; gap: 24px; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .section { padding: 60px 24px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 60px 24px; }
+    .hero-left::after { display: none; }
+    .hero-right { padding: 40px 24px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ─── NAV DROPDOWN ─── */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
+  .nav-dropdown > a::after {
+    content: ''; display: block;
+    width: 7px; height: 7px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform .2s;
+  }
+  .nav-dropdown:hover > a::after { transform: rotate(-135deg) translateY(-2px); }
+  .dropdown-menu {
+    display: none;
+    position: absolute; top: calc(100% + 12px); left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    border: 1px solid var(--gray-lt);
+    border-radius: 10px;
+    box-shadow: 0 12px 40px rgba(27,58,107,0.13);
+    min-width: 240px; padding: 8px 0;
+    z-index: 200;
+  }
+  .nav-dropdown.open .dropdown-menu { display: block; }
+  .nav-dropdown:hover .dropdown-menu { display: block; }
+  .dropdown-menu a {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 20px;
+    font-size: 13.5px; color: var(--navy);
+    text-decoration: none; transition: background .15s;
+    border-bottom: 1px solid var(--gray-lt);
+  }
+  .dropdown-menu a:last-child { border-bottom: none; }
+  .dropdown-menu a:hover { background: var(--offwhite); }
+  .dropdown-menu a:hover .dm-label { color: var(--gold); }
+  .dm-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .dm-text { display: flex; flex-direction: column; gap: 2px; }
+  .dm-label { font-weight: 600; color: var(--navy); font-size: 13px; transition: color .15s; }
+  .dm-desc { font-size: 11.5px; color: var(--gray); line-height: 1.4; font-weight: 400; }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <a href="index.html" style="text-decoration: none; color: inherit;">
+      <img src="image/Lotus Logo.png" alt="LotusTech" style="height:60px;width:auto;display:block;">
+    </a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-active">Home</a></li>
+    <li><a href="verisq.html">VerisQ™</a></li>
+    <li><a href="microdome.html">MicroDome</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="nav-dropdown">
+      <a href="resources.html">Resources</a>
+      <div class="dropdown-menu">
+        <a href="resources.html#coa">
+          <span class="dm-icon">📄</span>
+          <span class="dm-text">
+            <span class="dm-label">VerisQ™ COAs</span>
+            <span class="dm-desc">Batch-specific certificates of analysis</span>
+          </span>
+        </a>
+        <a href="microdome.html">
+          <span class="dm-icon">🔬</span>
+          <span class="dm-text">
+            <span class="dm-label">MicroDome Technical Data</span>
+            <span class="dm-desc">Biological &amp; chemical indicator specs</span>
+          </span>
+        </a>
+        <a href="nctc-atcc-equivalence.html">
+          <span class="dm-icon">✓</span>
+          <span class="dm-text">
+            <span class="dm-label">NCTC–ATCC Equivalence</span>
+            <span class="dm-desc">Strain equivalence &amp; regulatory statements</span>
+          </span>
+        </a>
+      </div>
+    </li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Request a Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span></span>Australian Pharmaceutical Solutions</div>
+    <h1 class="hero-h1">
+      Precision microbial<br>
+      control for <em>pharma</em>
+    </h1>
+    <p class="hero-desc">
+      LotusTech supplies quantitative reference cultures for pharmaceutical quality control testing, alongside a comprehensive range of MicroDome Labs sterilisation verification products — serving customers in Australia and internationally.
+    </p>
+    <div class="hero-licence">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);flex-shrink:0"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      <span>VerisQ™ incorporates reference strains sourced from <strong>UKHSA Culture Collections</strong> under licence.</span>
+    </div>
+    <div class="hero-actions">
+      <a href="verisq.html" class="btn-primary">Explore VerisQ™</a>
+      <a href="contact.html" class="btn-outline">Contact Us</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-carousel">
+      <div class="hero-slides">
+        <!-- Slide 1: VerisQ -->
+        <div class="hero-slide active" id="slide-0">
+          <img src="VerisQ.png" alt="VerisQ Quantitative Reference Culture">
+          <div class="hero-slide-label">
+            <div class="slide-label-name">VerisQ<sup>™</sup></div>
+            <div class="slide-label-sub">Quantitative Reference Cultures</div>
+          </div>
+        </div>
+        <!-- Slide 2: MicroDome VPHP-BI -->
+        <div class="hero-slide" id="slide-1">
+          <img src="vphp-bi.png" alt="MicroDome VPHP Biological Indicator">
+          <div class="hero-slide-label">
+            <div class="slide-label-name">MicroDome</div>
+            <div class="slide-label-sub">VPHP Biological Indicators</div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-dots">
+        <button class="carousel-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+        <button class="carousel-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var current = 0;
+  var total = 2;
+  var timer;
+
+  function goToSlide(n) {
+    document.getElementById('slide-' + current).classList.remove('active');
+    document.querySelectorAll('.carousel-dot')[current].classList.remove('active');
+    current = (n + total) % total;
+    document.getElementById('slide-' + current).classList.add('active');
+    document.querySelectorAll('.carousel-dot')[current].classList.add('active');
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(function(){ goToSlide(current + 1); }, 4000);
+  }
+
+  window.goToSlide = goToSlide;
+  resetTimer();
+})();
+</script>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+    </div>
+    <div>
+      <div class="trust-value">Licensed by UKHSA</div>
+      <div class="trust-label">UKHSA Culture Collections</div>
+    </div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+    </div>
+    <div>
+      <div class="trust-value">Pharmacopoeial Compatible</div>
+      <div class="trust-label">BP · USP · EP · ChP strain requirements</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS OVERVIEW -->
+<section class="section">
+  <div class="section-eyebrow">Our Products</div>
+  <h2 class="section-title">Two trusted product lines, one supplier</h2>
+  <div class="products-grid">
+    <a href="verisq.html" class="product-card verisq">
+      <div class="product-card-header">
+        <div class="card-brand">VerisQ<sup>™</sup></div>
+        <div class="card-tagline">Reference Cultures · LotusTech Brand</div>
+        <div class="card-licence-attr">Reference strains sourced from UKHSA Culture Collections under licence.</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Quantitative, ready-to-use lyophilised pellets containing a defined number of viable organisms.</p>
+        <ul class="card-features">
+          <li>Strains sourced from NCTC and NCPF, manufactured under UKHSA licence</li>
+          <li>Quantitative CFU per pellet — no serial dilution required</li>
+          <li>Covers key organisms required by BP, USP, EP and ChP</li>
+          <li>Full COA provided for every batch</li>
+        </ul>
+        <span class="card-link">Explore VerisQ™ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+    <a href="microdome.html" class="product-card microdome">
+      <div class="product-card-header">
+        <div class="card-brand">MicroDome</div>
+        <div class="card-tagline">Sterilisation Verification · Authorised Distributor</div>
+        <div class="card-licence-attr">Authorised distributor for Wenzhou MicroDome Technologies Co., Ltd.</div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Comprehensive sterilisation and disinfection process validation products for the Asia-Pacific region.</p>
+        <ul class="card-features">
+          <li>Biological Indicators (Steam, EO, VPHP, Dry Heat)</li>
+          <li>Chemical Indicators (Class 1–6)</li>
+          <li>Reference Cultures for environmental monitoring</li>
+          <li>ISO 11135 / ISO 11138 compliant formats</li>
+        </ul>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 16px;">
+          <span style="font-size:11px;font-weight:600;background:rgba(26,58,42,0.09);color:#1A3A2A;border-radius:4px;padding:3px 9px;letter-spacing:0.02em;">ISO 9001</span>
+          <span style="font-size:11px;font-weight:600;background:rgba(26,58,42,0.09);color:#1A3A2A;border-radius:4px;padding:3px 9px;letter-spacing:0.02em;">ISO 17025</span>
+          <span style="font-size:11px;font-weight:600;background:rgba(26,58,42,0.09);color:#1A3A2A;border-radius:4px;padding:3px 9px;letter-spacing:0.02em;">ISO 13485</span>
+          <span style="font-size:11px;font-weight:600;background:rgba(26,58,42,0.09);color:#1A3A2A;border-radius:4px;padding:3px 9px;letter-spacing:0.02em;">TGA Registered · ARTG 455431 &amp; 465729</span>
+        </div>
+        <span style="font-size:11px;color:var(--gray);display:block;margin-bottom:12px;">Certifications, Accreditations &amp; Regulatory Registrations →</span>
+        <span class="card-link">Learn about MicroDome <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section values">
+  <div class="section-eyebrow">Why LotusTech</div>
+  <h2 class="section-title">Scientific precision. Local expertise. Regulatory confidence.</h2>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      </div>
+      <h3 class="value-title">Licensed Authenticity</h3>
+      <p class="value-desc">All VerisQ™ strains are sourced from authenticated collections and manufactured under explicit UKHSA Culture Collections licence for pharmaceutical QC testing.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+      </div>
+      <h3 class="value-title">Quantitative Precision</h3>
+      <p class="value-desc">Each batch is delivered with a precisely defined CFU count, eliminating the variability of traditional dilution-based QC reference methods.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+      </div>
+      <h3 class="value-title">Regulatory Compliance</h3>
+      <p class="value-desc">VerisQ™ strains and equivalence statements support compliance with BP, USP, EP, and ChP requirements for pharmaceutical microbial testing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="contact-cta" id="contact-preview">
+  <h2>Ready to get started?</h2>
+  <p>Get in touch with our team to request a quote, discuss your QC requirements, or learn more about our products and services.</p>
+  <a href="contact.html" class="btn-primary" style="background: var(--gold); color: var(--navy); border: none;">Contact Us</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="verisq.html">VerisQ™ Reference Cultures</a></li>
+        <li><a href="microdome.html">MicroDome BIs & CIs</a></li>
+        <li><a href="resources.html">Technical Resources</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About LotusTech</a></li>
+        <li><a href="about.html">UKHSA Licence</a></li>
+        <li><a href="about.html">Certifications</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="resources.html">Download COAs</a></li>
+        <li><a href="resources.html">FAQs</a></li>
+        <li><a href="contact.html">Contact Sales</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>LotusTech Pty Ltd</li>
+        <li>Auburn NSW, Australia</li>
+        <li><a href="mailto:sales@lotustech.com.au">sales@lotustech.com.au</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <span>&copy; 2026 LotusTech Pty Ltd. All rights reserved.</span>
+    </div>
+    <div style="text-align:right;line-height:1.6;">
+      Licensed by UKHSA Culture Collections<br>
+      <span style="font-size:11px;opacity:0.6;">NCTC and NCPF are trade marks of UKHSA. VerisQ™ products are for non-therapeutic pharmaceutical QC testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Dropdown: keep open while hovering; also toggle on click for touch/click
+document.querySelectorAll('.nav-dropdown > a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    var li = this.closest('.nav-dropdown');
+    var isOpen = li.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(function(d){ d.classList.remove('open'); });
+    if (!isOpen) { li.classList.add('open'); e.preventDefault(); }
+  });
+});
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(function(d){ d.classList.remove('open'); });
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<svg width="100%" viewBox="0 0 680 380" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>MicroDome VPHP Biological Indicator — homepage promotional banner</title>
+  <desc>Promotional banner for MicroDome VPHP Biological Indicator, ISO 11138-1 compliant, distributed by LotusTech across Australia and APAC.</desc>
+  <defs>
+    <clipPath id="bc">
+      <rect width="680" height="380" rx="14"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#bc)">
+    <rect width="680" height="380" fill="#E1F5EE"/>
+    <rect x="420" y="0" width="260" height="354" fill="#9FE1CB"/>
+    <rect x="0" y="354" width="680" height="26" fill="#04342C"/>
+    <rect x="0" y="0" width="5" height="354" fill="#0F6E56"/>
+
+    <circle cx="632" cy="58" r="72" fill="#5DCAA5" opacity="0.22"/>
+    <circle cx="455" cy="330" r="36" fill="#0F6E56" opacity="0.12"/>
+    <circle cx="448" cy="54" r="3" fill="#0F6E56" opacity="0.32"/>
+    <circle cx="463" cy="36" r="2" fill="#0F6E56" opacity="0.28"/>
+    <circle cx="614" cy="46" r="3" fill="#0F6E56" opacity="0.28"/>
+    <circle cx="652" cy="30" r="2" fill="#0F6E56" opacity="0.32"/>
+    <circle cx="638" cy="282" r="3" fill="#0F6E56" opacity="0.28"/>
+
+    <rect x="40" y="24" width="115" height="22" fill="#1D9E75" rx="4"/>
+    <text x="97" y="39" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#E1F5EE" text-anchor="middle">MicroDome&#8482;</text>
+    <text x="163" y="39" font-family="Arial, sans-serif" font-size="12" fill="#0F6E56">Distributed by LotusTech · Australia &amp; APAC</text>
+
+    <text x="40" y="96" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#04342C">VPHP</text>
+    <text x="40" y="128" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0F6E56">Biological Indicator</text>
+    <text x="40" y="154" font-family="Arial, sans-serif" font-size="12" fill="#085041">Validated sterilisation confidence for vaporized H&#x2082;O&#x2082; processes.</text>
+
+    <line x1="40" y1="167" x2="378" y2="167" stroke="#5DCAA5" stroke-width="0.5"/>
+
+    <rect x="40" y="179" width="7" height="7" fill="#1D9E75" rx="1"/>
+    <text x="54" y="188" font-family="Arial, sans-serif" font-size="12" fill="#085041">ISO 11138-1 compliant · spore population &#x2265;1&#xD7;10&#x2076; CFU/carrier</text>
+
+    <rect x="40" y="201" width="7" height="7" fill="#1D9E75" rx="1"/>
+    <text x="54" y="210" font-family="Arial, sans-serif" font-size="12" fill="#085041">Geobacillus stearothermophilus · ATCC 7953 authenticated</text>
+
+    <rect x="40" y="223" width="7" height="7" fill="#1D9E75" rx="1"/>
+    <text x="54" y="232" font-family="Arial, sans-serif" font-size="12" fill="#085041">Compatible: Bioquell · STERIS VHP · Getinge · Belimed</text>
+
+    <rect x="40" y="245" width="7" height="7" fill="#1D9E75" rx="1"/>
+    <text x="54" y="254" font-family="Arial, sans-serif" font-size="12" fill="#085041">Certified D-value &amp; z-value · full COA provided per lot</text>
+
+    <rect x="40" y="267" width="7" height="7" fill="#1D9E75" rx="1"/>
+    <text x="54" y="276" font-family="Arial, sans-serif" font-size="12" fill="#085041">Self-contained · ready-to-use format</text>
+
+    <rect x="40" y="298" width="162" height="36" fill="#0F6E56" rx="6"/>
+    <text x="121" y="320" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#E1F5EE" text-anchor="middle">Enquire now &#x2192;</text>
+    <text x="40" y="347" font-family="Arial, sans-serif" font-size="11" fill="#085041">Authorised APAC Distributor · LotusTech</text>
+
+    <!-- Vial -->
+    <rect x="507" y="36" width="64" height="26" fill="#0F6E56" rx="3"/>
+    <rect x="505" y="60" width="68" height="190" fill="white" stroke="#1D9E75" stroke-width="1.5" rx="4"/>
+    <ellipse cx="539" cy="250" rx="34" ry="8" fill="white" stroke="#1D9E75" stroke-width="1.5"/>
+    <rect x="509" y="188" width="60" height="61" fill="#EF9F27" opacity="0.48"/>
+    <ellipse cx="539" cy="249" rx="30" ry="6" fill="#EF9F27" opacity="0.5"/>
+
+    <!-- Spores -->
+    <circle cx="521" cy="90" r="6" fill="#1D9E75"/>
+    <circle cx="546" cy="79" r="5" fill="#085041"/>
+    <circle cx="531" cy="114" r="7" fill="#5DCAA5"/>
+    <circle cx="554" cy="104" r="5" fill="#1D9E75"/>
+    <circle cx="516" cy="137" r="4" fill="#085041"/>
+    <circle cx="540" cy="128" r="6" fill="#1D9E75"/>
+    <circle cx="557" cy="152" r="4" fill="#5DCAA5"/>
+    <circle cx="524" cy="163" r="5" fill="#1D9E75"/>
+    <circle cx="549" cy="170" r="5" fill="#085041"/>
+
+    <!-- Vapor lines -->
+    <path d="M 505 116 Q 487 103 480 84" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <path d="M 505 143 Q 481 130 474 108" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <path d="M 573 116 Q 592 103 599 84" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <path d="M 573 143 Q 596 130 604 108" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+    <text x="539" y="275" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#04342C" text-anchor="middle">H&#x2082;O&#x2082;</text>
+    <text x="539" y="293" font-family="Arial, sans-serif" font-size="12" fill="#085041" text-anchor="middle">Vaporized Hydrogen Peroxide</text>
+
+    <!-- Badges -->
+    <rect x="428" y="307" width="98" height="42" fill="#185FA5" rx="5"/>
+    <text x="477" y="325" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#E6F1FB" text-anchor="middle">ISO 11138-1</text>
+    <text x="477" y="342" font-family="Arial, sans-serif" font-size="12" fill="#B5D4F4" text-anchor="middle">Compliant</text>
+
+    <rect x="534" y="307" width="130" height="42" fill="#1D9E75" rx="5"/>
+    <text x="599" y="325" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#E1F5EE" text-anchor="middle">Sterilisation</text>
+    <text x="599" y="342" font-family="Arial, sans-serif" font-size="12" fill="#9FE1CB" text-anchor="middle">Validation ready</text>
+
+    <text x="340" y="371" font-family="Arial, sans-serif" font-size="11" fill="#5DCAA5" text-anchor="middle">MicroDome Technologies Co., Ltd. · Authorised Distributor: LotusTech Australia &amp; APAC</text>
+  </g>
+</svg>
