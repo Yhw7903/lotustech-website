@@ -312,7 +312,7 @@
   <div class="contact-grid">
     <!-- FORM -->
     <div>
-      <form action="mailto:sales@lotustech.com.au" method="POST" enctype="text/plain">
+      <form action="https://formspree.io/f/xykvprpg" method="POST">
         <div class="form-group">
           <label class="form-label">Full Name *</label>
           <input type="text" name="name" class="form-input" required>
@@ -349,6 +349,9 @@
           <label class="form-label">Message / Requirements</label>
           <textarea name="message" class="form-textarea" placeholder="Tell us about your QC testing requirements or product needs..."></textarea>
         </div>
+
+        <input type="hidden" name="_subject" value="New Quote Request — LotusTech Website">
+        <input type="hidden" name="_next" value="https://yhw7903.github.io/lotustech-website/contact.html?sent=1">
 
         <button type="submit" class="form-btn">Send Quote Request</button>
         <p style="font-size: 12px; color: var(--gray); margin-top: 12px; text-align: center;">
