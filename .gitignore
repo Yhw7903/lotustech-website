@@ -6,3 +6,4 @@ build/
 coverage/
 *.log
 .claude/
+.fuse_hidden*
