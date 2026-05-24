@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VerisQ GP — Multi Dose | LotusTech</title>
+<title>VerisQ WC — Work Culture | LotusTech</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -63,7 +63,7 @@
   .breadcrumb span { margin: 0 8px; opacity: 0.5; }
   .spec-hero-identity { display: flex; align-items: center; gap: 28px; margin-bottom: 28px; flex-wrap: wrap; }
   .spec-badge-lg {
-    background:var(--navy);color:var(--white);
+    background:var(--offwhite);color:var(--navy);border:2px solid var(--gold);
     border-radius: 12px; font-size: 32px; font-weight: 700;
     padding: 14px 26px; letter-spacing: 0.1em; flex-shrink: 0;
     font-family: var(--font-display);
@@ -222,18 +222,18 @@
     <div class="breadcrumb">
       <a href="index.html">Home</a><span>/</span>
       <a href="verisq.html">Veris<span style="color:var(--gold)">Q</span></a><span>/</span>
-      <span style="opacity:1;">GP — Multi Dose</span>
+      <span style="opacity:1;">WC — Work Culture</span>
     </div>
     <div class="spec-hero-identity">
-      <div class="spec-badge-lg">GP</div>
+      <div class="spec-badge-lg">WC</div>
       <div class="spec-hero-names">
         <div class="spec-hero-product">Veris<span style="color:var(--gold)">Q</span> Reference Culture</div>
-        <div class="spec-hero-title">Veris<span style="color:var(--gold)">Q</span> <strong>GP</strong></div>
-        <div class="spec-hero-subtitle">Multi Dose</div>
-        <span class="spec-type-tag">Quantitative</span>
+        <div class="spec-hero-title">Veris<span style="color:var(--gold)">Q</span> <strong>WC</strong></div>
+        <div class="spec-hero-subtitle">Work Culture</div>
+        <span class="spec-type-tag">Qualitative</span>
       </div>
     </div>
-    <p class="spec-hero-desc">Multi-dose lyophilised pellets with a certified inoculum of 10²–10³ CFU per vial. Each vial is reconstituted and diluted to yield multiple Growth Promotion tests, with each inoculum delivering fewer than 100 CFU as required by pharmacopoeia. Designed for routine daily QC of culture media across USP, EP, BP, and JP growth promotion programmes, providing an economical multi-use format without compromising traceability or reproducibility.</p>
+    <p class="spec-hero-desc">Qualitative lyophilised pellets delivering a certified viable inoculum of more than 10³ CFU per vial. Veris<span style="color:var(--gold)">Q</span> WC is designed for applications where confirmed growth is required rather than a precise enumerated count — including positive controls for sterility testing, qualitative growth promotion confirmation, specified organism presence/absence testing, and preparation of working stock cultures. Each pellet reconstitutes in seconds to provide a ready-to-use viable suspension of authenticated compendial organisms.</p>
     <div class="hero-cta-row">
       <a href="contact.html" class="hero-btn-primary">Request a Quote</a>
       <a href="verisq.html" class="hero-btn-outline">← All Specifications</a>
@@ -245,7 +245,7 @@
 <section class="section" id="specs">
   <div class="section-inner">
     <div class="section-eyebrow">Technical Specification</div>
-    <h2 class="section-title">Veris<span style="color:var(--gold)">Q</span> <span style="color:var(--blue)">GP</span> — Full Product Details</h2>
+    <h2 class="section-title">Veris<span style="color:var(--gold)">Q</span> WC — Full Product Details</h2>
 
     <div class="two-col">
       <div>
@@ -253,8 +253,8 @@
           <h4>Format &amp; Inoculum</h4>
           <div class="detail-row"><span class="detail-label">Format</span><span class="detail-value">Lyophilised pellet</span></div>
           <div class="detail-row"><span class="detail-label">Organisms per kit</span><span class="detail-value">Up to 6</span></div>
-          <div class="detail-row"><span class="detail-label">CFU per pellet</span><span class="detail-value">10²–10³ CFU / pellet</span></div>
-          <div class="detail-row"><span class="detail-label">Inoculum type</span><span class="detail-value">Quantitative</span></div>
+          <div class="detail-row"><span class="detail-label">CFU per pellet</span><span class="detail-value">&gt; 10³ CFU / pellet</span></div>
+          <div class="detail-row"><span class="detail-label">Inoculum type</span><span class="detail-value">Qualitative</span></div>
           <div class="detail-row"><span class="detail-label">Pack size</span><span class="detail-value">6 vials</span></div>
           <div class="detail-row"><span class="detail-label">Reconstitution</span><span class="detail-value">PBS diluent (supplied)</span></div>
           <div class="detail-row"><span class="detail-label">Storage</span><span class="detail-value">≤ −18 °C (frozen)</span></div>
@@ -264,13 +264,13 @@
         <div class="detail-block" style="margin-top:24px;">
           <h4>Kit Contents</h4>
           <div class="detail-row"><span class="detail-label">Vials</span><span class="detail-value">6 vials per kit (1 vial per strain selected)</span></div>
-          <div class="detail-row"><span class="detail-label">Documentation</span><span class="detail-value">COA per strain, SDS set, Panel Traceability Summary</span></div>
+          <div class="detail-row"><span class="detail-label">Documentation</span><span class="detail-value">COA per strain, SDS set, NCTC–ATCC Equivalence Statement</span></div>
         </div>
         <div class="detail-block" style="margin-top:24px;">
           <h4>Ordering</h4>
-                  <div class="detail-row"><span class="detail-label">Configuration</span><span class="detail-value">Standard panel; substitutions available on request</span></div>
-        <div class="detail-row"><span class="detail-label">Lead time</span><span class="detail-value">5–7 business days (stock item)</span></div>
-        <div class="detail-row"><span class="detail-label">Custom options</span><span class="detail-value">Strain selection available on request</span></div>
+                  <div class="detail-row"><span class="detail-label">Configuration</span><span class="detail-value">Select strain + vial count per order</span></div>
+        <div class="detail-row"><span class="detail-label">Lead time</span><span class="detail-value">5–7 business days</span></div>
+        <div class="detail-row"><span class="detail-label">Custom options</span><span class="detail-value">Additional strains available on request</span></div>
         </div>
       </div>
 
@@ -312,11 +312,12 @@
         <tr><th>Application</th><th>Compendial Reference</th></tr>
       </thead>
       <tbody>
-        <tr><td>Growth Promotion Testing (GPT) — NMT 100 CFU / inoculum</td><td style="color:var(--blue);font-weight:500;">USP &lt;61&gt; / EP 2.6.12</td></tr>
-        <tr><td>Culture media qualification</td><td style="color:var(--blue);font-weight:500;">USP &lt;71&gt; / EP 2.6.1</td></tr>
-        <tr><td>Specified organism testing</td><td style="color:var(--blue);font-weight:500;">USP &lt;62&gt; / EP 2.6.13</td></tr>
-        <tr><td>Routine QC panel — aerobic &amp; fungal organisms</td><td style="color:var(--blue);font-weight:500;">USP / EP / BP / JP</td></tr>
-        <tr><td>Method suitability — media fertility checks</td><td style="color:var(--blue);font-weight:500;">EP 2.6.12 / JP 4.05</td></tr>
+        <tr><td>Positive controls for sterility testing</td><td style="color:var(--blue);font-weight:500;">USP &lt;71&gt; / EP 2.6.1</td></tr>
+        <tr><td>Growth promotion confirmation (qualitative)</td><td style="color:var(--blue);font-weight:500;">USP &lt;61&gt; / EP 2.6.12</td></tr>
+        <tr><td>Specified organism presence/absence testing</td><td style="color:var(--blue);font-weight:500;">USP &lt;62&gt; / EP 2.6.13</td></tr>
+        <tr><td>Antimicrobial effectiveness / preservative efficacy</td><td style="color:var(--blue);font-weight:500;">USP &lt;51&gt; / EP 5.1.3</td></tr>
+        <tr><td>Working stock culture preparation</td><td style="color:var(--blue);font-weight:500;">GMP laboratory use</td></tr>
+        <tr><td>Environmental monitoring positive controls</td><td style="color:var(--blue);font-weight:500;">ISO 14644 / GMP Annex 1</td></tr>
       </tbody>
     </table>
   </div>
@@ -335,18 +336,18 @@
         <p class="other-spec-desc">Single-use, per-test traceability. Ideal for targeted single-organism QC and method suitability testing.</p>
         <span class="other-spec-link">View Spec →</span>
       </a>
+      <a href="verisq-gp.html" class="other-spec-card">
+        <div class="other-spec-badge" style="background:var(--navy);color:var(--white);">GP</div>
+        <div class="other-spec-name">Veris<span style="color:var(--gold)">Q</span> <strong>GP</strong> — Multi Dose</div>
+        <div class="other-spec-cfu">10²–10³ CFU / pellet &nbsp;·&nbsp; Quantitative</div>
+        <p class="other-spec-desc">Multi-use growth promotion format. Economical for routine daily culture media QC across all major pharmacopoeias.</p>
+        <span class="other-spec-link">View Spec →</span>
+      </a>
       <a href="verisq-tk.html" class="other-spec-card">
         <div class="other-spec-badge" style="background:var(--navy);color:var(--white);">TK</div>
         <div class="other-spec-name">Veris<span style="color:var(--gold)">Q</span> <strong>TK</strong> — High Dose</div>
         <div class="other-spec-cfu">10³–10⁴ CFU / pellet &nbsp;·&nbsp; Quantitative</div>
         <p class="other-spec-desc">High-throughput inoculum for CDMOs, CROs, and labs running extended multi-organism QC panels.</p>
-        <span class="other-spec-link">View Spec →</span>
-      </a>
-      <a href="verisq-wc.html" class="other-spec-card">
-        <div class="other-spec-badge" style="background:var(--offwhite);color:var(--navy);border:2px solid var(--gold);">WC</div>
-        <div class="other-spec-name">Veris<span style="color:var(--gold)">Q</span> <strong>WC</strong> — Work Culture</div>
-        <div class="other-spec-cfu">&gt; 10³ CFU / pellet &nbsp;·&nbsp; Qualitative</div>
-        <p class="other-spec-desc">Qualitative working stock. Confirmed growth for positive controls, presence/absence, and stock culture preparation.</p>
         <span class="other-spec-link">View Spec →</span>
       </a>
     </div>
@@ -355,7 +356,7 @@
 
 <!-- CTA -->
 <div class="cta-strip">
-  <h2>Ready to order Veris<span style="color:var(--gold)">Q</span> <span style="color:var(--blue)">GP</span>?</h2>
+  <h2>Ready to order Veris<span style="color:var(--gold)">Q</span> WC?</h2>
   <p>Contact our team for pricing, lead times, and custom strain configurations.</p>
   <div class="cta-row">
     <a href="contact.html" class="hero-btn-primary">Request a Quote</a>

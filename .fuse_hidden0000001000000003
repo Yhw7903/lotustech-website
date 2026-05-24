@@ -245,7 +245,7 @@
 <section class="section" id="specs">
   <div class="section-inner">
     <div class="section-eyebrow">Technical Specification</div>
-    <h2 class="section-title">Veris<span style="color:var(--gold)">Q</span> <span style="color:var(--blue)">GP</span> — Full Product Details</h2>
+    <h2 class="section-title">Veris<span style="color:var(--gold)">Q</span> GP — Full Product Details</h2>
 
     <div class="two-col">
       <div>
@@ -355,7 +355,7 @@
 
 <!-- CTA -->
 <div class="cta-strip">
-  <h2>Ready to order Veris<span style="color:var(--gold)">Q</span> <span style="color:var(--blue)">GP</span>?</h2>
+  <h2>Ready to order Veris<span style="color:var(--gold)">Q</span> GP?</h2>
   <p>Contact our team for pricing, lead times, and custom strain configurations.</p>
   <div class="cta-row">
     <a href="contact.html" class="hero-btn-primary">Request a Quote</a>

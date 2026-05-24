@@ -355,7 +355,7 @@
 
 <!-- CTA -->
 <div class="cta-strip">
-  <h2>Ready to order Veris<span style="color:var(--gold)">Q</span> <span style="color:var(--blue)">GP</span>?</h2>
+  <h2>Ready to order Veris<span style="color:var(--gold)">Q</span> GP?</h2>
   <p>Contact our team for pricing, lead times, and custom strain configurations.</p>
   <div class="cta-row">
     <a href="contact.html" class="hero-btn-primary">Request a Quote</a>
