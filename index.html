@@ -387,6 +387,22 @@
   .dm-label { font-weight: 600; color: var(--navy); font-size: 13px; transition: color .15s; }
   .dm-desc { font-size: 11.5px; color: var(--gray); line-height: 1.4; font-weight: 400; }
 
+
+  /* ─── LANG TOGGLE ─── */
+  .lang-toggle {
+    display: flex; align-items: center;
+    border: 1.5px solid var(--gray-lt); border-radius: 20px;
+    overflow: hidden; margin-left: 14px; flex-shrink: 0;
+  }
+  .lang-btn {
+    padding: 5px 11px; font-size: 12px; font-weight: 600;
+    background: none; border: none; cursor: pointer;
+    color: var(--gray); letter-spacing: 0.04em; transition: all .15s;
+    font-family: var(--font-body);
+  }
+  .lang-btn.active { background: var(--navy); color: var(--white); }
+  .lang-btn:hover:not(.active) { background: var(--offwhite); color: var(--navy); }
+
 </style>
 </head>
 <body>
@@ -399,12 +415,12 @@
     </a>
   </div>
   <ul class="nav-links">
-    <li><a href="index.html" class="nav-active">Home</a></li>
+    <li><a href="index.html" class="nav-active" data-i18n="nav-home">Home</a></li>
     <li><a href="verisq.html">Veris<span style="color:var(--gold)">Q</span></a></li>
     <li><a href="microdome.html">MicroDome</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="about.html" data-i18n="nav-about">About</a></li>
     <li class="nav-dropdown">
-      <a href="resources.html">Resources</a>
+      <a href="resources.html" data-i18n="nav-resources">Resources</a>
       <div class="dropdown-menu">
         <a href="resources.html#coa">
           <span class="dm-icon">📄</span>
@@ -429,20 +445,24 @@
         </a>
       </div>
     </li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
   </ul>
-  <a href="contact.html" class="nav-cta">Request a Quote</a>
+  <a href="contact.html" class="nav-cta" data-i18n="nav-cta">Request a Quote</a>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+    <button class="lang-btn" onclick="setLang('zh')" id="btn-zh">中文</button>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow"><span></span>Australian Pharmaceutical Solutions</div>
-    <h1 class="hero-h1">
+    <div class="hero-eyebrow" data-i18n="hero-eyebrow"><span></span>Australian Pharmaceutical Solutions</div>
+    <h1 class="hero-h1" data-i18n="hero-h1">
       Precision microbial<br>
       control for <em>pharma</em>
     </h1>
-    <p class="hero-desc">
+    <p class="hero-desc" data-i18n="hero-desc">
       LotusTech supplies quantitative reference cultures for pharmaceutical quality control testing, alongside a comprehensive range of MicroDome Labs sterilisation verification products — serving customers in Australia and internationally.
     </p>
     <div class="hero-licence">
@@ -450,8 +470,8 @@
       <span>Veris<span style="color:var(--gold)">Q</span> incorporates reference strains sourced from <strong>UKHSA Culture Collections</strong> under licence.</span>
     </div>
     <div class="hero-actions">
-      <a href="verisq.html" class="btn-primary">Explore Veris<span style="color:var(--gold)">Q</span></a>
-      <a href="contact.html" class="btn-outline">Contact Us</a>
+      <a href="verisq.html" class="btn-primary" data-i18n="hero-btn-explore">Explore Veris<span style="color:var(--gold)">Q</span></a>
+      <a href="contact.html" class="btn-outline" data-i18n="hero-btn-contact">Contact Us</a>
     </div>
   </div>
   <div class="hero-right">
@@ -462,7 +482,7 @@
           <img src="VerisQ.png" alt="VerisQ Quantitative Reference Culture">
           <div class="hero-slide-label">
             <div class="slide-label-name">Veris<span style="color:var(--gold)">Q</span></div>
-            <div class="slide-label-sub">Quantitative Reference Cultures</div>
+            <div class="slide-label-sub" data-i18n="slide-verisq-sub">Quantitative Reference Cultures</div>
           </div>
         </div>
         <!-- Slide 2: MicroDome VPHP-BI -->
@@ -470,7 +490,7 @@
           <img src="vphp-bi.png" alt="MicroDome VPHP Biological Indicator">
           <div class="hero-slide-label">
             <div class="slide-label-name">MicroDome</div>
-            <div class="slide-label-sub">VPHP Biological Indicators</div>
+            <div class="slide-label-sub" data-i18n="slide-microdome-sub">VPHP Biological Indicators</div>
           </div>
         </div>
       </div>
@@ -514,8 +534,8 @@
       <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
     </div>
     <div>
-      <div class="trust-value">Licensed by UKHSA</div>
-      <div class="trust-label">UKHSA Culture Collections</div>
+      <div class="trust-value" data-i18n="trust-ukhsa-val">Licensed by UKHSA</div>
+      <div class="trust-label" data-i18n="trust-ukhsa-lbl">UKHSA Culture Collections</div>
     </div>
   </div>
   <div class="trust-item">
@@ -523,25 +543,25 @@
       <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
     </div>
     <div>
-      <div class="trust-value">Pharmacopoeial Compatible</div>
-      <div class="trust-label">BP · USP · EP · ChP strain requirements</div>
+      <div class="trust-value" data-i18n="trust-pharma-val">Pharmacopoeial Compatible</div>
+      <div class="trust-label" data-i18n="trust-pharma-lbl">BP · USP · EP · ChP strain requirements</div>
     </div>
   </div>
 </div>
 
 <!-- PRODUCTS OVERVIEW -->
 <section class="section">
-  <div class="section-eyebrow">Our Products</div>
-  <h2 class="section-title">Two trusted product lines, one supplier</h2>
+  <div class="section-eyebrow" data-i18n="prod-eyebrow">Our Products</div>
+  <h2 class="section-title" data-i18n="prod-title">Two trusted product lines, one supplier</h2>
   <div class="products-grid">
     <a href="verisq.html" class="product-card verisq">
       <div class="product-card-header">
         <div class="card-brand">Veris<span style="color:var(--gold)">Q</span></div>
-        <div class="card-tagline">Reference Cultures · LotusTech Brand</div>
+        <div class="card-tagline" data-i18n="verisq-tagline">Reference Cultures · LotusTech Brand</div>
         <div class="card-licence-attr">Reference strains sourced from UKHSA Culture Collections under licence.</div>
       </div>
       <div class="card-body">
-        <p class="card-desc">Quantitative, ready-to-use lyophilised pellets containing a defined number of viable organisms.</p>
+        <p class="card-desc" data-i18n="verisq-desc">Quantitative, ready-to-use lyophilised pellets containing a defined number of viable organisms.</p>
         <ul class="card-features">
           <li>Strains sourced from NCTC and NCPF, manufactured under UKHSA licence</li>
           <li>Quantitative CFU per pellet — no serial dilution required</li>
@@ -554,11 +574,11 @@
     <a href="microdome.html" class="product-card microdome">
       <div class="product-card-header">
         <div class="card-brand">MicroDome</div>
-        <div class="card-tagline">Sterilisation Verification · Authorised Distributor</div>
+        <div class="card-tagline" data-i18n="microdome-tagline">Sterilisation Verification · Authorised Distributor</div>
         <div class="card-licence-attr">Authorised distributor for Wenzhou MicroDome Technologies Co., Ltd.</div>
       </div>
       <div class="card-body">
-        <p class="card-desc">Comprehensive sterilisation and disinfection process validation products for the Asia-Pacific region.</p>
+        <p class="card-desc" data-i18n="microdome-desc">Comprehensive sterilisation and disinfection process validation products for the Asia-Pacific region.</p>
         <ul class="card-features">
           <li>Biological Indicators (Steam, EO, VPHP, Dry Heat)</li>
           <li>Chemical Indicators (Class 1–6)</li>
@@ -580,28 +600,28 @@
 
 <!-- VALUES -->
 <section class="section values">
-  <div class="section-eyebrow">Why LotusTech</div>
-  <h2 class="section-title">Scientific precision. Local expertise. Regulatory confidence.</h2>
+  <div class="section-eyebrow" data-i18n="values-eyebrow">Why LotusTech</div>
+  <h2 class="section-title" data-i18n="values-title">Scientific precision. Local expertise. Regulatory confidence.</h2>
   <div class="values-grid">
     <div class="value-card">
       <div class="value-icon">
         <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
       </div>
-      <h3 class="value-title">Licensed Authenticity</h3>
+      <h3 class="value-title" data-i18n="val1-title">Licensed Authenticity</h3>
       <p class="value-desc">All Veris<span style="color:var(--gold)">Q</span> strains are sourced from authenticated collections and manufactured under explicit UKHSA Culture Collections licence for pharmaceutical QC testing.</p>
     </div>
     <div class="value-card">
       <div class="value-icon">
         <svg viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
       </div>
-      <h3 class="value-title">Quantitative Precision</h3>
+      <h3 class="value-title" data-i18n="val2-title">Quantitative Precision</h3>
       <p class="value-desc">Each batch is delivered with a precisely defined CFU count, eliminating the variability of traditional dilution-based QC reference methods.</p>
     </div>
     <div class="value-card">
       <div class="value-icon">
         <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
       </div>
-      <h3 class="value-title">Regulatory Compliance</h3>
+      <h3 class="value-title" data-i18n="val3-title">Regulatory Compliance</h3>
       <p class="value-desc">Veris<span style="color:var(--gold)">Q</span> strains and equivalence statements support compliance with BP, USP, EP, and ChP requirements for pharmaceutical microbial testing.</p>
     </div>
   </div>
@@ -609,16 +629,16 @@
 
 <!-- CONTACT CTA -->
 <section class="contact-cta" id="contact-preview">
-  <h2>Ready to get started?</h2>
-  <p>Get in touch with our team to request a quote, discuss your QC requirements, or learn more about our products and services.</p>
-  <a href="contact.html" class="btn-primary" style="background: var(--gold); color: var(--navy); border: none;">Contact Us</a>
+  <h2 data-i18n="cta-title">Ready to get started?</h2>
+  <p data-i18n="cta-desc">Get in touch with our team to request a quote, discuss your QC requirements, or learn more about our products and services.</p>
+  <a href="contact.html" class="btn-primary" style="background: var(--gold); color: var(--navy); border: none;" data-i18n="cta-btn">Contact Us</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-col">
-      <h4>Products</h4>
+      <h4><span data-i18n="foot-products">Products</span></h4>
       <ul>
         <li><a href="verisq.html">Veris<span style="color:var(--gold)">Q</span> Reference Cultures</a></li>
         <li><a href="microdome.html">MicroDome BIs & CIs</a></li>
@@ -626,7 +646,7 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Company</h4>
+      <h4><span data-i18n="foot-company">Company</span></h4>
       <ul>
         <li><a href="about.html">About LotusTech</a></li>
         <li><a href="about.html">UKHSA Licence</a></li>
@@ -634,7 +654,7 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Support</h4>
+      <h4><span data-i18n="foot-support">Support</span></h4>
       <ul>
         <li><a href="resources.html">Download COAs</a></li>
         <li><a href="resources.html">FAQs</a></li>
@@ -642,7 +662,7 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Contact</h4>
+      <h4><span data-i18n="foot-contact">Contact</span></h4>
       <ul>
         <li>LotusTech Pty Ltd</li>
         <li>Auburn NSW, Australia</li>
@@ -653,7 +673,7 @@
   <div class="footer-divider"></div>
   <div class="footer-bottom">
     <div class="footer-bottom-left">
-      <span>&copy; 2026 LotusTech Pty Ltd. All rights reserved.</span>
+      <span data-i18n="foot-copy">&copy; 2026 LotusTech Pty Ltd. All rights reserved.</span>
     </div>
     <div style="text-align:right;line-height:1.6;">
       Licensed by UKHSA Culture Collections<br>
@@ -678,5 +698,104 @@ document.addEventListener('click', function(e) {
   }
 });
 </script>
+
+<script>
+var translations = {
+  en: {
+    "nav-home": "Home",
+    "nav-about": "About",
+    "nav-resources": "Resources",
+    "nav-contact": "Contact",
+    "nav-cta": "Request a Quote",
+    "hero-eyebrow": "<span></span>Australian Pharmaceutical Solutions",
+    "hero-h1": "Precision microbial<br>control for <em>pharma</em>",
+    "hero-desc": "LotusTech supplies quantitative reference cultures for pharmaceutical quality control testing, alongside a comprehensive range of MicroDome Labs sterilisation verification products — serving customers in Australia and internationally.",
+    "hero-btn-explore": "Explore Veris<span style=\"color:var(--gold)\">Q</span>",
+    "hero-btn-contact": "Contact Us",
+    "slide-verisq-sub": "Quantitative Reference Cultures",
+    "slide-microdome-sub": "VPHP Biological Indicators",
+    "trust-ukhsa-val": "Licensed by UKHSA",
+    "trust-ukhsa-lbl": "UKHSA Culture Collections",
+    "trust-pharma-val": "Pharmacopoeial Compatible",
+    "trust-pharma-lbl": "BP · USP · EP · ChP strain requirements",
+    "prod-eyebrow": "Our Products",
+    "prod-title": "Two trusted product lines, one supplier",
+    "verisq-tagline": "Reference Cultures · LotusTech Brand",
+    "verisq-desc": "Quantitative, ready-to-use lyophilised pellets containing a defined number of viable organisms.",
+    "microdome-tagline": "Sterilisation Verification · Authorised Distributor",
+    "microdome-desc": "Comprehensive sterilisation and disinfection process validation products for the Asia-Pacific region.",
+    "values-eyebrow": "Why LotusTech",
+    "values-title": "Scientific precision. Local expertise. Regulatory confidence.",
+    "val1-title": "Licensed Authenticity",
+    "val2-title": "Quantitative Precision",
+    "val3-title": "Regulatory Compliance",
+    "cta-title": "Ready to get started?",
+    "cta-desc": "Get in touch with our team to request a quote, discuss your QC requirements, or learn more about our products and services.",
+    "cta-btn": "Contact Us",
+    "foot-products": "Products",
+    "foot-company": "Company",
+    "foot-support": "Support",
+    "foot-contact": "Contact",
+    "foot-copy": "&copy; 2026 LotusTech Pty Ltd. All rights reserved."
+  },
+  zh: {
+    "nav-home": "首页",
+    "nav-about": "关于我们",
+    "nav-resources": "资源下载",
+    "nav-contact": "联系我们",
+    "nav-cta": "立即询价",
+    "hero-eyebrow": "<span></span>澳大利亚药品微生物解决方案",
+    "hero-h1": "精准微生物质控<br>助力<em>制药</em>行业",
+    "hero-desc": "LotusTech 为澳大利亚及国际药品质量控制实验室提供定量参考培养物，以及全系列 MicroDome Labs 灭菌验证产品。",
+    "hero-btn-explore": "探索 Veris<span style=\"color:var(--gold)\">Q</span>",
+    "hero-btn-contact": "联系我们",
+    "slide-verisq-sub": "定量参考培养物",
+    "slide-microdome-sub": "气化过氧化氢生物指示剂",
+    "trust-ukhsa-val": "UKHSA 授权许可",
+    "trust-ukhsa-lbl": "英国卫生安全局培养物收藏中心",
+    "trust-pharma-val": "符合药典要求",
+    "trust-pharma-lbl": "符合 BP · USP · EP · ChP 菌株要求",
+    "prod-eyebrow": "我们的产品",
+    "prod-title": "两条值得信赖的产品线，一个供应商",
+    "verisq-tagline": "参考培养物 · LotusTech 品牌",
+    "verisq-desc": "定量、即用型冻干颗粒，每颗粒含有精确数量的活性微生物。",
+    "microdome-tagline": "灭菌验证 · 授权经销商",
+    "microdome-desc": "面向亚太地区的全面灭菌及消毒工艺验证产品。",
+    "values-eyebrow": "选择 LotusTech 的理由",
+    "values-title": "科学精准。本土专业。法规保障。",
+    "val1-title": "授权正品保障",
+    "val2-title": "定量精准性",
+    "val3-title": "法规合规性",
+    "cta-title": "准备好开始了吗？",
+    "cta-desc": "请联系我们的团队，索取报价、讨论您的质控需求，或了解更多关于我们的产品和服务。",
+    "cta-btn": "联系我们",
+    "foot-products": "产品",
+    "foot-company": "公司",
+    "foot-support": "技术支持",
+    "foot-contact": "联系方式",
+    "foot-copy": "&copy; 2026 LotusTech Pty Ltd。保留所有权利。"
+  }
+};
+
+function setLang(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key] !== undefined) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+  document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : 'en';
+  try { localStorage.setItem('lt-lang', lang); } catch(e) {}
+}
+
+(function() {
+  var saved = 'en';
+  try { saved = localStorage.getItem('lt-lang') || 'en'; } catch(e) {}
+  if (saved === 'zh') setLang('zh');
+})();
+</script>
+
 </body>
 </html>
