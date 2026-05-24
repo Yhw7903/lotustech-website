@@ -267,7 +267,7 @@
   </div>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="verisq.html">Veris<span style="color:var(--gold)">Q</span></a></li>
+    <li><a href="verisq.html">VerisQ</a></li>
     <li><a href="microdome.html">MicroDome</a></li>
     <li><a href="about.html">About</a></li>
     <li class="nav-dropdown">
@@ -276,7 +276,7 @@
         <a href="resources.html#coa">
           <span class="dm-icon">📄</span>
           <span class="dm-text">
-            <span class="dm-label">Veris<span style="color:var(--gold)">Q</span> COAs</span>
+            <span class="dm-label">VerisQ COAs</span>
             <span class="dm-desc">Batch-specific certificates of analysis</span>
           </span>
         </a>
@@ -305,7 +305,7 @@
 <div class="page-hero">
   <div class="page-hero-content">
     <h1>Technical Resources</h1>
-    <p>Documentation, equivalence data, pharmacopoeial references, and support materials for Veris<span style="color:var(--gold)">Q</span> and MicroDome products.</p>
+    <p>Documentation, equivalence data, pharmacopoeial references, and support materials for VerisQ and MicroDome products.</p>
   </div>
 </div>
 
@@ -318,7 +318,7 @@
   <h2 class="section-title">NCTC-ATCC Reference Equivalence</h2>
 
   <p style="font-size: 15px; color: var(--gray); max-width: 780px; margin-bottom: 32px;">
-    We maintain formal equivalence documentation linking all Veris<span style="color:var(--gold)">Q</span> strains (sourced from NCTC/NCPF) to their commonly cited ATCC counterparts. This resource is essential for regulatory submissions, method transfers, and QA documentation. Access the full NCTC-ATCC equivalence matrix below:
+    We maintain formal equivalence documentation linking all VerisQ strains (sourced from NCTC/NCPF) to their commonly cited ATCC counterparts. This resource is essential for regulatory submissions, method transfers, and QA documentation. Access the full NCTC-ATCC equivalence matrix below:
   </p>
 
   <a href="nctc-atcc-equivalence.html" style="
@@ -338,7 +338,7 @@
   <h2 class="section-title">Pharmacopoeial Strain Requirements</h2>
 
   <p style="font-size: 15px; color: var(--gray); max-width: 900px; margin-bottom: 32px;">
-    Veris<span style="color:var(--gold)">Q</span> strains are selected to meet core organism requirements across major pharmacopeias. Use the table below to identify organisms for your specific testing requirements:
+    VerisQ strains are selected to meet core organism requirements across major pharmacopeias. Use the table below to identify organisms for your specific testing requirements:
   </p>
 
   <table class="pharma-table">
@@ -347,7 +347,7 @@
         <th>Pharmacopoeia</th>
         <th>Test Code</th>
         <th>Required Organisms</th>
-        <th>Veris<span style="color:var(--gold)">Q</span> Coverage</th>
+        <th>VerisQ Coverage</th>
       </tr>
     </thead>
     <tbody>
@@ -392,28 +392,28 @@
 
   <div style="max-width: 800px;">
     <div class="faq-item">
-      <div class="faq-q">What is the shelf life of Veris<span style="color:var(--gold)">Q</span> products?</div>
-      <div class="faq-a">Veris<span style="color:var(--gold)">Q</span> lyophilised pellets are stable for 24 months from manufacture when stored at ≤ −18°C (frozen). Reconstitution solution is stored at 2–30°C. Exact expiry dates are printed on each product label and COA.</div>
+      <div class="faq-q">What is the shelf life of VerisQ products?</div>
+      <div class="faq-a">VerisQ lyophilised pellets are stable for 24 months from manufacture when stored at ≤ −18°C (frozen). Reconstitution solution is stored at 2–30°C. Exact expiry dates are printed on each product label and COA.</div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">Are Veris<span style="color:var(--gold)">Q</span> strains validated for use in USP &lt;61&gt; testing?</div>
-      <div class="faq-a">Yes. All Veris<span style="color:var(--gold)">Q</span> strains sourced from NCTC and NCPF are covered by equivalence statements linking them to ATCC references cited in USP &lt;61&gt;. These statements are available for download and provide regulatory documentation for QA audits.</div>
+      <div class="faq-q">Are VerisQ strains validated for use in USP &lt;61&gt; testing?</div>
+      <div class="faq-a">Yes. All VerisQ strains sourced from NCTC and NCPF are covered by equivalence statements linking them to ATCC references cited in USP &lt;61&gt;. These statements are available for download and provide regulatory documentation for QA audits.</div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">Can Veris<span style="color:var(--gold)">Q</span> be used for sterilisation process validation?</div>
-      <div class="faq-a">No. Veris<span style="color:var(--gold)">Q</span> is specifically designed for pharmaceutical quality control testing (contamination monitoring) only. For sterilisation validation, use MicroDome biological indicators, which are ISO 11138 compliant.</div>
+      <div class="faq-q">Can VerisQ be used for sterilisation process validation?</div>
+      <div class="faq-a">No. VerisQ is specifically designed for pharmaceutical quality control testing (contamination monitoring) only. For sterilisation validation, use MicroDome biological indicators, which are ISO 11138 compliant.</div>
     </div>
 
     <div class="faq-item">
       <div class="faq-q">What does the UKHSA licence restrict?</div>
-      <div class="faq-a">Veris<span style="color:var(--gold)">Q</span> products are licensed for non-therapeutic pharmaceutical quality control testing only. Use is restricted to laboratory QC testing environments. Therapeutic applications are not permitted under the UKHSA Culture Collections licence.</div>
+      <div class="faq-a">VerisQ products are licensed for non-therapeutic pharmaceutical quality control testing only. Use is restricted to laboratory QC testing environments. Therapeutic applications are not permitted under the UKHSA Culture Collections licence.</div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">How do I interpret the CFU count on a Veris<span style="color:var(--gold)">Q</span> COA?</div>
-      <div class="faq-a">The CFU count listed on the COA represents the viable organism count per pellet at the time of manufacture. This count is determined using validated microbiological enumeration methods. All Veris<span style="color:var(--gold)">Q</span> products are delivered with a defined, quantified CFU count — there is no requirement for serial dilutions.</div>
+      <div class="faq-q">How do I interpret the CFU count on a VerisQ COA?</div>
+      <div class="faq-a">The CFU count listed on the COA represents the viable organism count per pellet at the time of manufacture. This count is determined using validated microbiological enumeration methods. All VerisQ products are delivered with a defined, quantified CFU count — there is no requirement for serial dilutions.</div>
     </div>
 
     <div class="faq-item">
@@ -422,8 +422,8 @@
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">Can I request custom Veris<span style="color:var(--gold)">Q</span> formats for my laboratory?</div>
-      <div class="faq-a">Veris<span style="color:var(--gold)">Q</span> is available in three standard formats (SS, GP, TK). Custom organism panels or CFU specifications may be possible for large volume orders. Contact sales@lotustech.com.au to discuss custom requirements.</div>
+      <div class="faq-q">Can I request custom VerisQ formats for my laboratory?</div>
+      <div class="faq-a">VerisQ is available in three standard formats (SS, GP, TK). Custom organism panels or CFU specifications may be possible for large volume orders. Contact sales@lotustech.com.au to discuss custom requirements.</div>
     </div>
 
     <div class="faq-item">
@@ -439,7 +439,7 @@
     <div class="footer-col">
       <h4>Products</h4>
       <ul>
-        <li><a href="verisq.html">Veris<span style="color:var(--gold)">Q</span> Reference Cultures</a></li>
+        <li><a href="verisq.html">VerisQ Reference Cultures</a></li>
         <li><a href="microdome.html">MicroDome BIs & CIs</a></li>
         <li><a href="resources.html">Technical Resources</a></li>
       </ul>
@@ -477,7 +477,7 @@
     </div>
     <div style="text-align:right;line-height:1.6;">
       Licensed by UKHSA Culture Collections<br>
-      <span style="font-size:11px;opacity:0.6;">NCTC and NCPF are trade marks of UKHSA. Veris<span style="color:var(--gold)">Q</span> products are for non-therapeutic pharmaceutical QC testing only.</span>
+      <span style="font-size:11px;opacity:0.6;">NCTC and NCPF are trade marks of UKHSA. VerisQ products are for non-therapeutic pharmaceutical QC testing only.</span>
     </div>
   </div>
 </footer>

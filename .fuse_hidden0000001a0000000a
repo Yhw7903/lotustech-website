@@ -214,7 +214,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="verisq.html">Veris<span style="color:var(--gold)">Q</span></a></li>
+    <li><a href="verisq.html">VerisQ</a></li>
     <li><a href="microdome.html">MicroDome</a></li>
     <li><a href="about.html">About</a></li>
     <li class="nav-dropdown">
@@ -223,7 +223,7 @@
         <a href="resources.html#coa">
           <span class="dm-icon">📄</span>
           <span class="dm-text">
-            <span class="dm-label">Veris<span style="color:var(--gold)">Q</span> COAs</span>
+            <span class="dm-label">VerisQ COAs</span>
             <span class="dm-desc">Batch-specific certificates of analysis</span>
           </span>
         </a>
@@ -252,7 +252,7 @@
 <div class="page-hero">
   <div class="page-hero-content">
     <h1>NCTC–ATCC Equivalence Reference</h1>
-    <p>Formal equivalence documentation for all 11 Veris<span style="color:var(--gold)">Q</span> reference strains — linking NCTC and NCPF strain designations to their ATCC counterparts for regulatory submissions and QA documentation.</p>
+    <p>Formal equivalence documentation for all 11 VerisQ reference strains — linking NCTC and NCPF strain designations to their ATCC counterparts for regulatory submissions and QA documentation.</p>
   </div>
 </div>
 
@@ -426,7 +426,7 @@
     NCTC = National Collection of Type Cultures &nbsp;|&nbsp; NCPF = National Collection of Pathogenic Fungi &nbsp;|&nbsp; ATCC = American Type Culture Collection &nbsp;|&nbsp; WDCM = World Data Centre for Microorganisms.<br>
     NCTC and NCPF are trade marks of UKHSA. Both collections are held by the UK Health Security Agency (UKHSA, Porton Down).<br>
     ATCC® is a registered trademark of the American Type Culture Collection. ATCC strain designations are cited solely to indicate equivalence and are not intended to imply any affiliation with or endorsement by ATCC.<br>
-    Veris<span style="color:var(--gold)">Q</span> products are licensed for <strong>non-therapeutic pharmaceutical quality control testing only</strong>, as defined under the UKHSA Culture Collections licence agreement.<br><br>
+    VerisQ products are licensed for <strong>non-therapeutic pharmaceutical quality control testing only</strong>, as defined under the UKHSA Culture Collections licence agreement.<br><br>
     <strong>Pharmacopoeial basis for equivalence:</strong> USP &lt;1117&gt;, EP 5.1.4 / 5.1.5 / 5.1.6, and JP General Information &lt;G4&gt; permit use of strains from alternative culture collections that can be demonstrated to be equivalent ("or equivalent strain" / "or strains shown to be equivalent"). NCTC and NCPF strains share the same original isolation source, phenotypic and genotypic characteristics, and WDCM registration number as their ATCC counterparts, and are internationally recognised as interchangeable reference strains.
   </div>
 
@@ -449,7 +449,7 @@
     <div class="footer-col">
       <h4>Products</h4>
       <ul>
-        <li><a href="verisq.html">Veris<span style="color:var(--gold)">Q</span> Reference Cultures</a></li>
+        <li><a href="verisq.html">VerisQ Reference Cultures</a></li>
         <li><a href="microdome.html">MicroDome BIs &amp; CIs</a></li>
         <li><a href="resources.html">Technical Resources</a></li>
       </ul>
@@ -484,7 +484,7 @@
     <span>&copy; 2026 LotusTech Pty Ltd. All rights reserved.</span>
     <div style="text-align:right;line-height:1.6;">
       Licensed by UKHSA Culture Collections<br>
-      <span style="font-size:11px;opacity:0.6;">NCTC and NCPF are trade marks of UKHSA. Veris<span style="color:var(--gold)">Q</span> products are for non-therapeutic pharmaceutical QC testing only.</span>
+      <span style="font-size:11px;opacity:0.6;">NCTC and NCPF are trade marks of UKHSA. VerisQ products are for non-therapeutic pharmaceutical QC testing only.</span>
     </div>
   </div>
 </footer>

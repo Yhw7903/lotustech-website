@@ -391,7 +391,7 @@
   </div>
   <ul class="nav-links">
     <li><a href="index.html" class="nav-active">Home</a></li>
-    <li><a href="verisq.html">Veris<span style="color:var(--gold)">Q</span></a></li>
+    <li><a href="verisq.html">VerisQ</a></li>
     <li><a href="microdome.html">MicroDome</a></li>
     <li><a href="about.html">About</a></li>
     <li class="nav-dropdown">
@@ -400,7 +400,7 @@
         <a href="resources.html#coa">
           <span class="dm-icon">📄</span>
           <span class="dm-text">
-            <span class="dm-label">Veris<span style="color:var(--gold)">Q</span> COAs</span>
+            <span class="dm-label">VerisQ COAs</span>
             <span class="dm-desc">Batch-specific certificates of analysis</span>
           </span>
         </a>
@@ -438,21 +438,21 @@
     </p>
     <div class="hero-licence">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);flex-shrink:0"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-      <span>Veris<span style="color:var(--gold)">Q</span> incorporates reference strains sourced from <strong>UKHSA Culture Collections</strong> under licence.</span>
+      <span>VerisQ incorporates reference strains sourced from <strong>UKHSA Culture Collections</strong> under licence.</span>
     </div>
     <div class="hero-actions">
-      <a href="verisq.html" class="btn-primary">Explore Veris<span style="color:var(--gold)">Q</span></a>
+      <a href="verisq.html" class="btn-primary">Explore VerisQ</a>
       <a href="contact.html" class="btn-outline">Contact Us</a>
     </div>
   </div>
   <div class="hero-right">
     <div class="hero-carousel">
       <div class="hero-slides">
-        <!-- Slide 1: Veris<span style="color:var(--gold)">Q</span> -->
+        <!-- Slide 1: VerisQ -->
         <div class="hero-slide active" id="slide-0">
           <img src="VerisQ.png" alt="VerisQ Quantitative Reference Culture">
           <div class="hero-slide-label">
-            <div class="slide-label-name">Veris<span style="color:var(--gold)">Q</span></div>
+            <div class="slide-label-name">VerisQ</div>
             <div class="slide-label-sub">Quantitative Reference Cultures</div>
           </div>
         </div>
@@ -527,7 +527,7 @@
   <div class="products-grid">
     <a href="verisq.html" class="product-card verisq">
       <div class="product-card-header">
-        <div class="card-brand">Veris<span style="color:var(--gold)">Q</span></div>
+        <div class="card-brand">VerisQ</div>
         <div class="card-tagline">Reference Cultures · LotusTech Brand</div>
         <div class="card-licence-attr">Reference strains sourced from UKHSA Culture Collections under licence.</div>
       </div>
@@ -539,7 +539,7 @@
           <li>Covers key organisms required by BP, USP, EP and ChP</li>
           <li>Full COA provided for every batch</li>
         </ul>
-        <span class="card-link">Explore Veris<span style="color:var(--gold)">Q</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="card-link">Explore VerisQ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
     </a>
     <a href="microdome.html" class="product-card microdome">
@@ -579,7 +579,7 @@
         <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
       </div>
       <h3 class="value-title">Licensed Authenticity</h3>
-      <p class="value-desc">All Veris<span style="color:var(--gold)">Q</span> strains are sourced from authenticated collections and manufactured under explicit UKHSA Culture Collections licence for pharmaceutical QC testing.</p>
+      <p class="value-desc">All VerisQ strains are sourced from authenticated collections and manufactured under explicit UKHSA Culture Collections licence for pharmaceutical QC testing.</p>
     </div>
     <div class="value-card">
       <div class="value-icon">
@@ -593,7 +593,7 @@
         <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
       </div>
       <h3 class="value-title">Regulatory Compliance</h3>
-      <p class="value-desc">Veris<span style="color:var(--gold)">Q</span> strains and equivalence statements support compliance with BP, USP, EP, and ChP requirements for pharmaceutical microbial testing.</p>
+      <p class="value-desc">VerisQ strains and equivalence statements support compliance with BP, USP, EP, and ChP requirements for pharmaceutical microbial testing.</p>
     </div>
   </div>
 </section>
@@ -611,7 +611,7 @@
     <div class="footer-col">
       <h4>Products</h4>
       <ul>
-        <li><a href="verisq.html">Veris<span style="color:var(--gold)">Q</span> Reference Cultures</a></li>
+        <li><a href="verisq.html">VerisQ Reference Cultures</a></li>
         <li><a href="microdome.html">MicroDome BIs & CIs</a></li>
         <li><a href="resources.html">Technical Resources</a></li>
       </ul>
@@ -648,7 +648,7 @@
     </div>
     <div style="text-align:right;line-height:1.6;">
       Licensed by UKHSA Culture Collections<br>
-      <span style="font-size:11px;opacity:0.6;">NCTC and NCPF are trade marks of UKHSA. Veris<span style="color:var(--gold)">Q</span> products are for non-therapeutic pharmaceutical QC testing only.</span>
+      <span style="font-size:11px;opacity:0.6;">NCTC and NCPF are trade marks of UKHSA. VerisQ products are for non-therapeutic pharmaceutical QC testing only.</span>
     </div>
   </div>
 </footer>
