@@ -12,3 +12,6 @@ ziHSsQO2
 index_old.html
 LotusTech_stamp_transparent.png
 .git-ssh/
+*.txt
+!robots.txt
+*.xlsx
