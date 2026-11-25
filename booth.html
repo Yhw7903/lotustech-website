@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scan to get your gift — LotusTech</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Booth display screen: shown full-screen on a laptop at the LotusTech table.
+     Usage: booth.html?event=CAPSIG-NSW-2Dec2026&label=CAPSIG%20NSW%20Seminar%20%C2%B7%202%20December%202026 */
+  :root { --navy: #1B3A6B; --navy2: #224B96; --gold: #EEB032; --ink: #14244A; --mut: #C9D6EC; }
+  * { box-sizing: border-box; margin: 0; padding: 0; min-width: 0; }
+  html, body { height: 100%; }
+  body { background: radial-gradient(ellipse at 30% 40%, #2A57A8 0%, var(--navy2) 40%, var(--navy) 100%); color: #fff; font: 18px/1.5 'DM Sans', system-ui, sans-serif; overflow: hidden; }
+  .wrap { height: 100%; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 72px); align-items: center; padding: clamp(24px, 4vh, 56px) clamp(24px, 5vw, 80px); }
+  .left { display: flex; flex-direction: column; gap: clamp(12px, 2.4vh, 28px); height: 100%; justify-content: center; }
+  .logo { align-self: flex-start; background: #fff; border-radius: 14px; padding: 12px 20px; }
+  .logo img { height: clamp(32px, 5vh, 52px); width: auto; display: block; }
+  h1 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(36px, 6vh, 68px); line-height: 1.04; }
+  h1 em { font-style: normal; color: var(--gold); }
+  .steps { color: var(--mut); font-size: clamp(16px, 2.3vh, 22px); }
+  .cube { position: relative; width: min(100%, 46vh); aspect-ratio: 1; }
+  .cube img { width: 82%; margin: 9%; display: block; border-radius: 16px; transform: rotate(-4deg); box-shadow: 0 24px 48px rgba(0,0,0,.35); }
+  .cube canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
+  .card { background: #fff; color: var(--ink); border-radius: 24px; padding: clamp(20px, 3.5vh, 40px); display: flex; flex-direction: column; align-items: center; gap: clamp(10px, 1.8vh, 18px); box-shadow: 0 30px 80px rgba(0,0,0,.35); justify-self: center; width: min(100%, 72vh); }
+  .card h2 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(26px, 4.2vh, 44px); line-height: 1.1; text-align: center; }
+  .qr { width: 100%; aspect-ratio: 1; display: grid; place-items: center; }
+  .qr svg, .qr img { width: 100%; height: 100%; display: block; }
+  .url { font-weight: 600; font-size: clamp(16px, 2.4vh, 24px); }
+  .label { color: #4A5F6B; font-size: clamp(14px, 2vh, 19px); text-align: center; }
+  .fs { position: fixed; right: 14px; bottom: 12px; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.25); border-radius: 8px; min-height: 40px; padding: 0 14px; font: 500 14px 'DM Sans', sans-serif; cursor: pointer; opacity: .55; }
+  .fs:hover, .fs:focus-visible { opacity: 1; outline: 2px solid var(--gold); }
+  @media (max-aspect-ratio: 1/1) {
+    body { overflow: auto; }
+    .wrap { grid-template-columns: 1fr; height: auto; }
+    .left { height: auto; align-items: center; text-align: center; }
+    .logo { align-self: center; }
+    .cube { width: min(70vw, 320px); }
+    .card { width: min(100%, 520px); }
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="left">
+    <div class="logo"><img src="image/lotus-logo-tight.png" alt="LotusTech"></div>
+    <h1>Scan to get your <em>gift cube</em></h1>
+    <p class="steps">1. Scan the code with your phone camera<br>2. Leave your details (one minute)<br>3. Show your gift code to our team</p>
+    <div class="cube" id="cube3d" role="img" aria-label="LotusTech gift cube"><picture id="cubeImg"><source srcset="image/gift-cube.webp" type="image/webp"><img src="image/gift-cube.png" alt=""></picture></div>
+  </section>
+  <section class="card" aria-label="QR code">
+    <h2>Scan me</h2>
+    <div class="qr" id="qr"></div>
+    <div class="url" id="url">lotustech.com.au/gift.html</div>
+    <div class="label" id="label"></div>
+  </section>
+</main>
+<button class="fs" id="fs" type="button">Full screen</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var eventName = (params.get('event') || '').replace(/[^A-Za-z0-9_.-]/g, '').slice(0, 80);
+  var label = (params.get('label') || '').slice(0, 120);
+  var target = 'https://lotustech.com.au/gift.html' + (eventName ? '?event=' + eventName : '');
+  document.getElementById('label').textContent = label;
+  if (label) document.title = 'Scan to get your gift — ' + label;
+
+  // QR code (SVG, crisp at any screen size)
+  var box = document.getElementById('qr');
+  try {
+    if (typeof qrcode !== 'function') throw 0;
+    var q = qrcode(0, 'M'); q.addData(target); q.make();
+    var n = q.getModuleCount(), m = 2, d = '';
+    for (var r = 0; r < n; r++) for (var c = 0; c < n; c++) if (q.isDark(r, c)) d += 'M' + (c + m) + ' ' + (r + m) + 'h1v1h-1z';
+    box.innerHTML = '<svg viewBox="0 0 ' + (n + 2 * m) + ' ' + (n + 2 * m) + '" shape-rendering="crispEdges" role="img" aria-label="QR code for ' + target + '"><rect width="100%" height="100%" fill="#fff"/><path d="' + d + '" fill="#14244A"/></svg>';
+  } catch (e) {
+    if (eventName === 'CAPSIG-NSW-2Dec2026') box.innerHTML = '<img src="image/qr-capsig-2dec2026.png" alt="QR code">';
+    else box.textContent = target;
+  }
+
+  // Full screen
+  var fs = document.getElementById('fs');
+  fs.addEventListener('click', function () {
+    if (document.fullscreenElement) document.exitFullscreen(); else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(function () {});
+  });
+  document.addEventListener('fullscreenchange', function () { fs.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen'; });
+
+  // 3D cube (still image stays if WebGL or the library is unavailable)
+  var host = document.getElementById('cube3d');
+  try {
+    if (!window.THREE || !THREE.OrbitControls) throw 0;
+    var BODY = '#5E5956', COLORS = { U: '#0046AD', D: '#009B48', L: '#FF6A13', R: '#C8102E', B: '#FFD500' };
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)); renderer.outputEncoding = THREE.sRGBEncoding;
+    var scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
+    camera.position.set(5.3, 4.0, 7.8);
+    var controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true; controls.enablePan = false; controls.enableZoom = false;
+    controls.autoRotate = !reduce; controls.autoRotateSpeed = 1.6;
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x334466, 0.8));
+    var key = new THREE.DirectionalLight(0xffffff, 0.7); key.position.set(4, 7, 6); scene.add(key);
+    var rim = new THREE.DirectionalLight(0xbfd4ff, 0.3); rim.position.set(-6, 2, -5); scene.add(rim);
+    var colorTex = function (col) {
+      var cv = document.createElement('canvas'); cv.width = cv.height = 128;
+      var g = cv.getContext('2d'); g.fillStyle = BODY; g.fillRect(0, 0, 128, 128); g.fillStyle = col;
+      g.beginPath(); g.moveTo(18, 0); g.arcTo(128, 0, 128, 128, 18); g.arcTo(128, 128, 0, 128, 18); g.arcTo(0, 128, 0, 0, 18); g.arcTo(0, 0, 128, 0, 18); g.closePath(); g.fill();
+      var t = new THREE.CanvasTexture(cv); t.encoding = THREE.sRGBEncoding; return t;
+    };
+    var cm = {}; Object.keys(COLORS).forEach(function (k) { cm[k] = new THREE.MeshStandardMaterial({ map: colorTex(COLORS[k]), roughness: 0.45 }); });
+    var loader = new THREE.TextureLoader(), left = 9, on = false;
+    var ready = function () {
+      if (on) return; on = true;
+      host.appendChild(renderer.domElement); document.getElementById('cubeImg').style.display = 'none';
+      (function loop() { controls.update(); renderer.render(scene, camera); requestAnimationFrame(loop); })();
+    };
+    var fm = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (k) {
+      var t = loader.load('image/cube/tile-' + k + '.png', function () { if (--left === 0) ready(); });
+      t.encoding = THREE.sRGBEncoding; t.anisotropy = 8; return new THREE.MeshStandardMaterial({ map: t, roughness: 0.4 });
+    });
+    var bodyMat = new THREE.MeshStandardMaterial({ color: BODY, roughness: 0.6 });
+    var bx = new THREE.BoxGeometry(0.98, 0.98, 0.98), pl = new THREE.PlaneGeometry(0.97, 0.97), o = 0.492;
+    var add = function (grp, mat, px, py, pz, rx, ry) { var s = new THREE.Mesh(pl, mat); s.position.set(px, py, pz); s.rotation.set(rx, ry, 0); grp.add(s); };
+    for (var x = -1; x <= 1; x++) for (var y = -1; y <= 1; y++) for (var z = -1; z <= 1; z++) {
+      var cb = new THREE.Group(); cb.position.set(x, y, z); cb.add(new THREE.Mesh(bx, bodyMat));
+      if (z === 1) add(cb, fm[(1 - y) * 3 + x + 1], 0, 0, o, 0, 0);
+      if (z === -1) add(cb, cm.B, 0, 0, -o, 0, Math.PI);
+      if (x === 1) add(cb, cm.R, o, 0, 0, 0, Math.PI / 2);
+      if (x === -1) add(cb, cm.L, -o, 0, 0, 0, -Math.PI / 2);
+      if (y === 1) add(cb, cm.U, 0, o, 0, -Math.PI / 2, 0);
+      if (y === -1) add(cb, cm.D, 0, -o, 0, Math.PI / 2, 0);
+      scene.add(cb);
+    }
+    var size = function () { var w = host.clientWidth; renderer.setSize(w, w, false); };
+    if (window.ResizeObserver) new ResizeObserver(size).observe(host); else window.addEventListener('resize', size);
+    size();
+  } catch (e) { /* keep the still image */ }
+})();
+</script>
+</body>
+</html>
