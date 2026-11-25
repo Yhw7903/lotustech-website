@@ -273,10 +273,11 @@
   .gift-hero { min-height: 0; text-align: left; padding-bottom: 120px; }
   .gift-hero-in { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); gap: 48px; align-items: center; }
   .gift-hero h1 { font-size: clamp(36px, 4.6vw, 56px); }
-  .gift-cube img { width: min(100%, 340px); height: auto; display: block; margin: 0 auto; border-radius: 16px; transform: rotate(-4deg); box-shadow: 0 24px 48px rgba(0,0,0,0.35); }
-  .lang { display: inline-flex; background: rgba(255,255,255,0.15); border-radius: 99px; padding: 4px; margin-bottom: 24px; }
-  .lang button { border: 0; background: none; color: var(--white); font: 500 14px var(--font-body); padding: 8px 16px; border-radius: 99px; min-height: 40px; cursor: pointer; }
-  .lang button[aria-pressed=true] { background: var(--gold); color: var(--navy); }
+  .gift-cube { position: relative; width: min(100%, 400px); aspect-ratio: 1; margin: 0 auto; }
+  .gift-cube img { width: 82%; height: auto; display: block; margin: 9%; border-radius: 16px; transform: rotate(-4deg); box-shadow: 0 24px 48px rgba(0,0,0,0.35); }
+  .gift-cube canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; cursor: grab; }
+  .gift-cube canvas:active { cursor: grabbing; }
+  .cube-hint { position: absolute; left: 0; right: 0; bottom: -18px; text-align: center; font-size: 13px; color: rgba(255,255,255,0.75); }
   .gift-section { padding-top: 0; }
   .gift-card { max-width: 860px; margin: -80px auto 0; background: var(--white); border: 1px solid var(--gray-lt); border-radius: 16px; box-shadow: 0 16px 48px rgba(27,58,107,0.14); padding: clamp(24px, 4vw, 44px); position: relative; }
   .gift-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); column-gap: 24px; }
@@ -287,7 +288,7 @@
   .g-chip input { position: absolute; opacity: 0; inset: 0; }
   .g-chip span { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 16px; border: 1px solid var(--gray-lt); border-radius: 99px; font-size: 14px; color: var(--navy); cursor: pointer; }
   .g-chip input:checked + span { background: var(--navy); border-color: var(--navy); color: var(--white); }
-  .g-chip input:focus-visible + span, .lang button:focus-visible, .g-btn:focus-visible, .g-again:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  .g-chip input:focus-visible + span, .g-btn:focus-visible, .g-again:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
   .g-consent { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--gray); line-height: 1.5; }
   .g-consent input { width: 22px; height: 22px; flex: none; margin-top: 1px; accent-color: var(--navy); }
   .g-consent a { color: var(--blue); }
@@ -303,7 +304,7 @@
   @media (max-width: 768px) {
     .gift-hero-in { grid-template-columns: 1fr; gap: 24px; }
     .gift-cube { order: -1; }
-    .gift-cube img { width: 180px; }
+    .gift-cube { width: 240px; }
     .gift-grid { grid-template-columns: 1fr; }
     .gift-section { padding-left: 16px; padding-right: 16px; }
   }
@@ -367,43 +368,39 @@
 <div class="page-hero gift-hero">
   <div class="gift-hero-in">
     <div>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang="en" aria-pressed="true">English</button>
-        <button type="button" data-lang="zh" aria-pressed="false">中文</button>
-      </div>
       <h1 data-t="h1">Leave your details, take home our gift cube</h1>
-      <p data-t="lead">One minute to fill in. Show your code to our staff at the booth to collect your gift.</p>
+      <p>One minute to fill in. Show your code to our staff at the booth to collect your gift.</p>
     </div>
-    <picture class="gift-cube"><source srcset="image/gift-cube.webp" type="image/webp"><img src="image/gift-cube.png" alt="LotusTech gift cube" width="420" height="420"></picture>
+    <div class="gift-cube" id="cube3d" role="img" aria-label="LotusTech gift cube, drag to rotate"><picture id="cubeImg"><source srcset="image/gift-cube.webp" type="image/webp"><img src="image/gift-cube.png" alt="" width="420" height="420"></picture><span class="cube-hint" id="cubeHint" hidden>Drag to rotate</span></div>
   </div>
 </div>
 
 <section class="section gift-section">
   <div class="gift-card" id="formCard">
-    <p class="gift-closed" id="closed" hidden data-t="closed">Booth registration is not open yet. Please ask our staff.</p>
+    <p class="gift-closed" id="closed" hidden>Booth registration is not open yet. Please ask our staff.</p>
     <form id="giftForm" novalidate>
       <input type="text" name="_gotcha" id="gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="gift-grid">
-        <div class="form-group"><label class="form-label" for="g-name"><span data-t="name">Full name</span> *</label><input class="form-input" type="text" id="g-name" autocomplete="name" required><div class="g-err" id="e-name"></div></div>
-        <div class="form-group"><label class="form-label" for="g-company"><span data-t="company">Company / Organisation</span> *</label><input class="form-input" type="text" id="g-company" autocomplete="organization" required><div class="g-err" id="e-company"></div></div>
-        <div class="form-group"><label class="form-label" for="g-email"><span data-t="email">Email</span> *</label><input class="form-input" type="email" id="g-email" autocomplete="email" inputmode="email" required><div class="g-err" id="e-email"></div></div>
-        <div class="form-group"><label class="form-label" for="g-phone" data-t="phone">Phone / WeChat</label><input class="form-input" type="tel" id="g-phone" autocomplete="tel"></div>
-        <div class="form-group"><label class="form-label" for="g-title" data-t="title">Job title</label><input class="form-input" type="text" id="g-title" autocomplete="organization-title"></div>
-        <div class="form-group"><label class="form-label" for="g-country" data-t="country">Country / Region</label>
-          <select class="form-select" id="g-country"><option value="">—</option><option>Australia</option><option>New Zealand</option><option>China</option><option>Singapore</option><option>Malaysia</option><option>Indonesia</option><option>Thailand</option><option>Vietnam</option><option>Philippines</option><option>India</option><option>Japan</option><option>Korea</option><option value="Other">Other / 其他</option></select></div>
-        <div class="form-group g-full"><span class="form-label" data-t="interest">Products of interest</span><div class="g-chips" id="chips"></div></div>
-        <div class="form-group g-full"><label class="form-label" for="g-note" data-t="note">Anything we should know? (optional)</label><textarea class="form-textarea" id="g-note" style="min-height:80px"></textarea></div>
-        <div class="form-group g-full"><label class="g-consent"><input type="checkbox" id="g-consent"><span><span data-t="consent">I agree that LotusTech Pty Ltd may store these details and contact me about its products and services. I can ask to be removed at any time.</span> <a href="privacy.html" target="_blank" rel="noopener" data-t="policy">Privacy Policy</a></span></label><div class="g-err" id="e-consent"></div></div>
-        <div class="g-full"><button class="form-btn g-btn" id="g-go" type="submit" data-t="submit">Get my gift code</button><div class="g-err" id="e-form" role="alert"></div></div>
+        <div class="form-group"><label class="form-label" for="g-name"><span>Full name</span> *</label><input class="form-input" type="text" id="g-name" autocomplete="name" required><div class="g-err" id="e-name"></div></div>
+        <div class="form-group"><label class="form-label" for="g-company"><span>Company / Organisation</span> *</label><input class="form-input" type="text" id="g-company" autocomplete="organization" required><div class="g-err" id="e-company"></div></div>
+        <div class="form-group"><label class="form-label" for="g-email"><span>Email</span> *</label><input class="form-input" type="email" id="g-email" autocomplete="email" inputmode="email" required><div class="g-err" id="e-email"></div></div>
+        <div class="form-group"><label class="form-label" for="g-phone">Phone / WeChat</label><input class="form-input" type="tel" id="g-phone" autocomplete="tel"></div>
+        <div class="form-group"><label class="form-label" for="g-title">Job title</label><input class="form-input" type="text" id="g-title" autocomplete="organization-title"></div>
+        <div class="form-group"><label class="form-label" for="g-country">Country / Region</label>
+          <select class="form-select" id="g-country"><option value="">—</option><option>Australia</option><option>New Zealand</option><option>China</option><option>Singapore</option><option>Malaysia</option><option>Indonesia</option><option>Thailand</option><option>Vietnam</option><option>Philippines</option><option>India</option><option>Japan</option><option>Korea</option><option>Other</option></select></div>
+        <div class="form-group g-full"><span class="form-label">Products of interest</span><div class="g-chips" id="chips"></div></div>
+        <div class="form-group g-full"><label class="form-label" for="g-note">Anything we should know? (optional)</label><textarea class="form-textarea" id="g-note" style="min-height:80px"></textarea></div>
+        <div class="form-group g-full"><label class="g-consent"><input type="checkbox" id="g-consent"><span><span>I agree that LotusTech Pty Ltd may store these details and contact me about its products and services. I can ask to be removed at any time.</span> <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a></span></label><div class="g-err" id="e-consent"></div></div>
+        <div class="g-full"><button class="form-btn g-btn" id="g-go" type="submit">Get my gift code</button><div class="g-err" id="e-form" role="alert"></div></div>
       </div>
     </form>
   </div>
   <div class="gift-card g-done" id="doneCard" hidden aria-live="polite">
-    <h2 id="doneH" data-t="thanks">Thank you!</h2>
-    <p data-t="yourcode">Your gift code</p>
+    <h2 id="doneH">Thank you!</h2>
+    <p>Your gift code</p>
     <div class="g-code" id="code">----</div>
-    <p id="doneP" data-t="show">Show this code to our staff at the booth to collect your gift.</p>
-    <button class="g-again" id="again" type="button" data-t="again">Register another person</button>
+    <p id="doneP">Show this code to our staff at the booth to collect your gift.</p>
+    <button class="g-again" id="again" type="button">Register another person</button>
   </div>
 </section>
 
@@ -472,74 +469,108 @@ document.addEventListener('click', function(e) {
   }
 });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script>
 (function () {
-  // Paste the Google Apps Script web app URL here (ends with /exec).
+  // ─── 3D gift cube (falls back to the still image if WebGL or the library is unavailable) ───
+  var host = document.getElementById('cube3d');
+  var showFront = function () {};
+  try {
+    if (!window.THREE || !THREE.OrbitControls) throw 0;
+    var BODY = '#5E5956', COLORS = { U: '#0046AD', D: '#009B48', L: '#FF6A13', R: '#C8102E', B: '#FFD500' };
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    var scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
+    camera.position.set(5.3, 4.0, 7.8);
+    var controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true; controls.enablePan = false; controls.enableZoom = false;
+    controls.autoRotate = !reduce; controls.autoRotateSpeed = 1.6;
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x334466, 0.8));
+    var key = new THREE.DirectionalLight(0xffffff, 0.7); key.position.set(4, 7, 6); scene.add(key);
+    var rim = new THREE.DirectionalLight(0xbfd4ff, 0.3); rim.position.set(-6, 2, -5); scene.add(rim);
+    var colorTex = function (c) {
+      var cv = document.createElement('canvas'); cv.width = cv.height = 128;
+      var g = cv.getContext('2d'); g.fillStyle = BODY; g.fillRect(0, 0, 128, 128); g.fillStyle = c;
+      g.beginPath(); g.moveTo(18, 0); g.arcTo(128, 0, 128, 128, 18); g.arcTo(128, 128, 0, 128, 18); g.arcTo(0, 128, 0, 0, 18); g.arcTo(0, 0, 128, 0, 18); g.closePath(); g.fill();
+      var t = new THREE.CanvasTexture(cv); t.encoding = THREE.sRGBEncoding; return t;
+    };
+    var cm = {}; Object.keys(COLORS).forEach(function (k) { cm[k] = new THREE.MeshStandardMaterial({ map: colorTex(COLORS[k]), roughness: 0.45 }); });
+    var loader = new THREE.TextureLoader(), left = 9, on = false;
+    var fm = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (n) {
+      var t = loader.load('image/cube/tile-' + n + '.png', function () { if (--left === 0) ready(); });
+      t.encoding = THREE.sRGBEncoding; t.anisotropy = 8;
+      return new THREE.MeshStandardMaterial({ map: t, roughness: 0.4 });
+    });
+    var bodyMat = new THREE.MeshStandardMaterial({ color: BODY, roughness: 0.6 });
+    var box = new THREE.BoxGeometry(0.98, 0.98, 0.98), pl = new THREE.PlaneGeometry(0.97, 0.97), o = 0.492;
+    var cube = new THREE.Group(); scene.add(cube);
+    for (var x = -1; x <= 1; x++) for (var y = -1; y <= 1; y++) for (var z = -1; z <= 1; z++) {
+      var c = new THREE.Group(); c.position.set(x, y, z); c.add(new THREE.Mesh(box, bodyMat));
+      var add = function (grp, m, px, py, pz, rx, ry) { var s = new THREE.Mesh(pl, m); s.position.set(px, py, pz); s.rotation.set(rx, ry, 0); grp.add(s); };
+      if (z === 1) add(c, fm[(1 - y) * 3 + x + 1], 0, 0, o, 0, 0);
+      if (z === -1) add(c, cm.B, 0, 0, -o, 0, Math.PI);
+      if (x === 1) add(c, cm.R, o, 0, 0, 0, Math.PI / 2);
+      if (x === -1) add(c, cm.L, -o, 0, 0, 0, -Math.PI / 2);
+      if (y === 1) add(c, cm.U, 0, o, 0, -Math.PI / 2, 0);
+      if (y === -1) add(c, cm.D, 0, -o, 0, Math.PI / 2, 0);
+      cube.add(c);
+    }
+    var size = function () { var w = host.clientWidth; renderer.setSize(w, w, false); };
+    if (window.ResizeObserver) new ResizeObserver(size).observe(host); else window.addEventListener('resize', size);
+    size();
+    var ready = function () {
+      if (on) return; on = true;
+      host.appendChild(renderer.domElement);
+      document.getElementById('cubeImg').style.display = 'none';
+      document.getElementById('cubeHint').hidden = false;
+      (function loop() { controls.update(); renderer.render(scene, camera); requestAnimationFrame(loop); })();
+    };
+    showFront = function () {
+      if (!on) return;
+      var from = camera.position.clone(), to = new THREE.Vector3(1.8, 1.4, 8.0), t0 = performance.now();
+      controls.autoRotate = false;
+      (function f(now) {
+        var p = Math.min(1, (now - t0) / 700); camera.position.lerpVectors(from, to, p * (2 - p));
+        if (p < 1) requestAnimationFrame(f); else setTimeout(function () { controls.autoRotate = !reduce; }, 4000);
+      })(t0);
+    };
+  } catch (e) { /* keep the still image */ }
+
+  // ─── Registration form ───
+  // Google Apps Script web app URL (ends with /exec).
   var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwASrNf9XiLSO9PQbyO9o7MpZUQz4-0_XtpLy3y6ULTwFvdIEI_5SwvRoNeahk5re2z/exec';
-
-  var INTERESTS = [
-    ['VPHP Biological Indicators', 'VPHP 生物指示剂'],
-    ['Custom BIs (alumina carrier, spore threads & discs)', '定制 BI（氧化铝载体、菌丝/菌片）'],
-    ['Pharmaceutical disinfectants', '制药环境消毒剂'],
-    ['VerisQ reference cultures', 'VerisQ 标准菌株'],
-    ['BI recovery medium', 'BI 复苏培养基']
-  ];
-  var ZH = {
-    h1: '留下联系方式，领取礼品魔方', lead: '一分钟填完，到展台向工作人员出示领取码即可领取礼品。',
-    name: '姓名', company: '公司 / 机构', email: '邮箱', phone: '电话 / 微信', title: '职位', country: '国家 / 地区',
-    interest: '感兴趣的产品', note: '其他需求（选填）',
-    consent: '我同意 LotusTech Pty Ltd 保存以上信息，并就其产品和服务与我联系。我可随时要求删除。', policy: '隐私政策',
-    submit: '获取领取码', thanks: '谢谢！', yourcode: '您的领取码', show: '请到展台向工作人员出示此领取码领取礼品。',
-    again: '再登记一位', closed: '展会登记尚未开放，请咨询现场工作人员。'
-  };
-  var MSG = {
-    en: { req: 'Required', email: 'Please check the email address', consent: 'Please tick the box to continue', fail: 'Could not submit. Please check your connection and try again, or ask our staff.', dup: 'You are already registered' , busy: 'Submitting…' },
-    zh: { req: '请填写此项', email: '邮箱格式不正确', consent: '请勾选同意后再提交', fail: '提交失败，请检查网络后重试，或咨询现场工作人员。', dup: '您已经登记过了', busy: '提交中…' }
-  };
+  var INTERESTS = ['VPHP Biological Indicators', 'Custom BIs (alumina carrier, spore threads & discs)', 'Pharmaceutical disinfectants', 'VerisQ reference cultures', 'BI recovery medium'];
+  var MSG = { req: 'Required', email: 'Please check the email address', consent: 'Please tick the box to continue', fail: 'Could not submit. Please check your connection and try again, or ask our staff.', dup: 'You are already registered', thanks: 'Thank you!', busy: 'Submitting…' };
   var $ = function (id) { return document.getElementById(id); };
-  var EN = {};
-  document.querySelectorAll('[data-t]').forEach(function (e) { EN[e.dataset.t] = e.textContent; });
-  var lang = 'en';
-  var params = new URLSearchParams(location.search);
-  var eventName = (params.get('event') || '').slice(0, 80);
+  var eventName = (new URLSearchParams(location.search).get('event') || '').slice(0, 80);
+  var consentText = document.querySelector('.g-consent > span > span').textContent;
 
-  function renderChips() {
-    var sel = {};
-    document.querySelectorAll('#chips input:checked').forEach(function (i) { sel[i.value] = 1; });
-    $('chips').innerHTML = INTERESTS.map(function (r) {
-      return '<label class="g-chip"><input type="checkbox" value="' + r[0] + '"' + (sel[r[0]] ? ' checked' : '') + '><span>' + (lang === 'zh' ? r[1] : r[0]) + '</span></label>';
-    }).join('');
-  }
-  function setLang(l) {
-    lang = l;
-    document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
-    document.querySelectorAll('[data-t]').forEach(function (e) { e.textContent = (l === 'zh' && ZH[e.dataset.t]) || EN[e.dataset.t]; });
-    document.querySelectorAll('.lang button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.lang === l); });
-    renderChips();
-  }
-  document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
-  if (/^zh/i.test(navigator.language || '')) setLang('zh'); else renderChips();
-  if (!ENDPOINT) { $('closed').hidden = false; }
+  $('chips').innerHTML = INTERESTS.map(function (r) {
+    return '<label class="g-chip"><input type="checkbox" value="' + r.replace(/&/g, '&amp;') + '"><span>' + r.replace(/&/g, '&amp;') + '</span></label>';
+  }).join('');
+  if (!ENDPOINT) $('closed').hidden = false;
 
   function v(id) { return $(id).value.trim(); }
   function check() {
-    var ok = true, m = MSG[lang];
-    ['name', 'company', 'email'].forEach(function (k) {
-      var bad = !v('g-' + k); $('e-' + k).textContent = bad ? m.req : ''; if (bad) ok = false;
-    });
-    if (v('g-email') && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('g-email'))) { $('e-email').textContent = m.email; ok = false; }
-    $('e-consent').textContent = $('g-consent').checked ? '' : m.consent;
+    var ok = true;
+    ['name', 'company', 'email'].forEach(function (k) { var bad = !v('g-' + k); $('e-' + k).textContent = bad ? MSG.req : ''; if (bad) ok = false; });
+    if (v('g-email') && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('g-email'))) { $('e-email').textContent = MSG.email; ok = false; }
+    $('e-consent').textContent = $('g-consent').checked ? '' : MSG.consent;
     if (!$('g-consent').checked) ok = false;
     return ok;
   }
   function showDone(code, dup) {
     $('formCard').hidden = true; $('doneCard').hidden = false;
     $('code').textContent = code;
-    $('doneH').textContent = dup ? MSG[lang].dup : ((lang === 'zh' && ZH.thanks) || EN.thanks);
-    window.scrollTo({ top: $('doneCard').offsetTop - 100, behavior: 'smooth' });
+    $('doneH').textContent = dup ? MSG.dup : MSG.thanks;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    showFront();
   }
   $('again').addEventListener('click', function () {
-    $('giftForm').reset(); renderChips();
+    $('giftForm').reset();
     document.querySelectorAll('.g-err').forEach(function (e) { e.textContent = ''; });
     $('doneCard').hidden = true; $('formCard').hidden = false;
   });
@@ -547,23 +578,19 @@ document.addEventListener('click', function(e) {
     e.preventDefault();
     $('e-form').textContent = '';
     if (!check()) return;
-    if (!ENDPOINT) { $('e-form').textContent = (lang === 'zh' ? ZH.closed : EN.closed); return; }
+    if (!ENDPOINT) { $('e-form').textContent = $('closed').textContent; return; }
     var btn = $('g-go'), label = btn.textContent;
-    btn.disabled = true; btn.textContent = MSG[lang].busy;
+    btn.disabled = true; btn.textContent = MSG.busy;
     var data = {
       name: v('g-name'), company: v('g-company'), email: v('g-email').toLowerCase(), phone: v('g-phone'),
       title: v('g-title'), country: $('g-country').value,
       interests: Array.prototype.map.call(document.querySelectorAll('#chips input:checked'), function (i) { return i.value; }).join('; '),
-      note: v('g-note'), lang: lang, event: eventName, consent: 'yes',
-      consentText: EN.consent, gotcha: $('gotcha').value
+      note: v('g-note'), lang: 'en', event: eventName, consent: 'yes', consentText: consentText, gotcha: $('gotcha').value
     };
     fetch(ENDPOINT, { method: 'POST', body: JSON.stringify(data) })
       .then(function (r) { return r.json(); })
-      .then(function (res) {
-        if (!res || !res.ok || !res.code) throw new Error('bad');
-        showDone(String(res.code), !!res.duplicate);
-      })
-      .catch(function () { $('e-form').textContent = MSG[lang].fail; })
+      .then(function (res) { if (!res || !res.ok || !res.code) throw new Error('bad'); showDone(String(res.code), !!res.duplicate); })
+      .catch(function () { $('e-form').textContent = MSG.fail; })
       .then(function () { btn.disabled = false; btn.textContent = label; });
   });
 })();
